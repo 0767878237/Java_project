@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Da Nang City</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="main.js">
+        <script src="https://kit.fontawesome.com/9e2020f946.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <!-- navbar header -->
+        <div class="navbar">
+            <div class="navbar-left">
+                <img src="/city.jpg" alt="">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about-resort-img">Resorts</a></li>
+                <li><a href="#about-transportation-img">Transportation</a></li>
+                <li><a href="#about-architecture-img">Architecture </a></li>
+                <li><a href="#about-tour-img">Tourist Attraction</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </div>
+            <div class="navbar-right">
+                <div class="search">
+                    <input type="text" class="search-input" placeholder="Ho Chi Minh, Da Nang, Ha Noi">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="sign-in" onclick="loginToggle()">Sign in</div>
+                <div class="join-us" onclick="signupToggle()">Join us</div>
+            </div>
+        </div>
+        <!-- modal pop up -->
+        <div class="overlay" onclick="closeForms()"></div>
+        <div class="sign-up-form">
+            <div class="form">
+                <div class="close" onclick="signupToggle()">&times;</div>
+                <div class="text">
+                    <h1>Register Form</h1>
+                </div>
+                <form action="#">
+                    <div class="row-form">
+                        <input type="text" placeholder="First Name">
+                        <input type="text" placeholder="Last Name">
+                    </div>
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Confirm Password">
+                    <input class="submit" type="submit" value="Register">
+                </form>
+            </div>
+        </div>
+
+        <div class="login-form">
+            <div class="form">
+                <div class="close" onclick="loginToggle()">&times;</div>
+                <div class="text">
+                    <h1>Login Form</h1>
+                </div>
+                <form action="#">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <input class="submit" type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+<!-- about city -->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="/da nang/dn.jpg" alt="">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">Da Nang</h1>
+                        <p>
+                            Da Nang is one of five centrally-governed cities in Vietnam, located in the South Central Coast region. 
+                            This is the central and largest city in the entire Central region, playing an important role as the nucleus of the Central Key Economic Zone. 
+                            Da Nang City is currently a class 1 urban area, a central city at the regional and national levels.
+                        </p>
+        
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('resort')">Resorts</p>
+                            <p class="tab-links" onclick="opentab('transportation')">Transportation</p>
+                            <p class="tab-links"onclick="opentab('architecture')">Architecture</p>
+                            <p class="tab-links"onclick="opentab('tour')">Tourist Attraction</p>
+                        </div>
+                        <!-- resort" -->
+                        <div class="tab-contents active-tab" id="resort">
+                            <ul>
+                                <li><span>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    InterContinental Danang Sun Peninsula Resort
+                                </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    North Beach, Son Tra
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Located on a hillside overlooking the Danang Bay - the area where this resort is located, 
+                                        InterContinental Danang Sun Peninsula Resort is perfect for travelers who want to enjoy a private space in a natural setting, away from the noise of the city.
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-dollar-sign"></i>
+                                        Room rates from: 16.000.000 VND / night
+                                    </li>
+                                </li>
+                                <li>
+                                    <span>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    Fusion Suites Danang Beach
+                                    </span><br>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        Vo Nguyen Giap, Man Thai ward, Son Tra
+                                        <li>
+                                            <i class="fa-solid fa-book"></i>
+                                            This is a quiet sea area with only fishermen pulling in their nets every morning. In addition to the infinity pool built on the sand, 
+                                            the rooftop area with open space and a view of the city is the most suitable place for couples looking for a romantic location in Da Nang.
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-dollar-sign"></i>
+                                            Room rates from: 3.500.000 VND / night
+                                        </li>
+                                </li>
+                                <li>
+                                    <span>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    Melia Danang Resort
+                                    </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    19 Truong Sa, Hoa Hai Ward, Hoa Hai, Ngu Hanh Son
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Melia Danang Resort is not only one of the 10 luxury resorts in Danang but also in the top 10 hotels in Asia with many amenities. 
+                                        The total number of rooms is up to more than 150, helping this resort diversify rooms from mid-range to high-end, able to provide many services with the best quality.
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-dollar-sign"></i>
+                                        Room rates from: 3.200.000 VND / night
+                                    </li>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- transportation -->
+                        <div class="tab-contents" id="transportation">
+                            <ul>
+                                <li><span>
+                                    <i class="fa-solid fa-road"></i>
+                                    Road system
+                                </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Da Nang City connects with domestic localities through two national highways: National Highway 1 with the North-South Expressway 
+                                        in the East and National Highway 14B with the North-South Expressway in the West.
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        The inner-city traffic infrastructure is quite complete with a traffic network connecting to the city's ring roads,
+                                        making Da Nang one of the few cities in Vietnam that rarely faces traffic jams.
+                                    </li>
+                                    <span></span>
+                                </li>
+                                <li><span>
+                                    <i class="fa-solid fa-plane"></i>
+                                    Airway system
+                                </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Da Nang International Airport is one of the three largest and most important international airports in Vietnam. 
+                                        Da Nang International Airport with 84 check-in counters and other modern facilities has ensured to serve more than 10 million passengers/year and 15 million passengers/year from 2020 onwards.
+                                    </li>
+                                </li>
+                                <li><span>
+                                    <i class="fa-solid fa-anchor"></i>
+                                    Waterway system
+                                </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        With a particularly favorable location for sea traffic, close to international shipping routes, 
+                                        Da Nang Port is the largest seaport in the Central region, capable of receiving large ships with a tonnage of up to 40,000 tons.
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Da Nang Port continues to maintain its position as the number 1 port in the Central region and one of the largest and most modern seaports in Vietnam. 
+                                        Da Nang Port also contributes to the city's tourism development by welcoming 95 cruise ships with nearly 188,000 passengers and crew members.
+                                    </li>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- architecture -->
+                        <div class="tab-contents" id="architecture">
+                            <ul>
+                                <li><span>
+                                    <i class="fa-solid fa-bridge"></i>
+                                    Han River Bridge
+                                </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Bach Dang, Ward Hai Chau 1, Hai Chau District
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Han River Bridge is one of the bridges across the Han River in Da Nang, Central Vietnam. 
+                                        This is the first swing bridge designed and constructed by Vietnamese engineers and workers and is the only swing bridge that can still rotate in Vietnam today.
+                                    </li>
+                                </li>
+                                <li><span>
+                                    <i class="fa-solid fa-bridge"></i>
+                                    Dragon Bridge
+                                </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Hai Chau District
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Dragon Bridge is 666 m long and 37.5 m wide with 6 lanes, costing nearly 1.5 trillion VND (US$88m). 
+                                        The bridge was designed and built in the shape of a dragon that can breathe fire and water. 
+                                        Currently, the fire and water breathing time starts at 9:00 p.m. every Friday, Saturday, Sunday and major holidays.
+                                    </li>
+                                </li>
+                                <li><span>
+                                    <i class="fa-solid fa-bridge"></i>
+                                    Golden Bridge
+                                </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Empire City Urban Area, Thu Thiem, District 2
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Golden Bridge is the name of a pedestrian bridge about 150 m (about 490 ft) long. 
+                                        Located at an altitude of about 1,414 m (above sea level) on Ba Na Mountain, the bridge connects the cable car station with other gardens of the resort. 
+                                        In the middle of the bridge are two large hands constructed by assembling the skeleton and plastering the outside to create a highlight for the bridge.
+                                    </li>
+                                </li>     
+                            </ul>
+                        </div>
+                        <!-- tour -->
+                        <div class="tab-contents" id="tour">
+                            <ul>
+                                <li><span>
+                                    <i class="fa-regular fa-star"></i>
+                                    Sun World Ba Na Hills
+                                </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    An Son Village, Hoa Ninh Commune, Hoa Vang District
+                                    <br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Coming to Sun World Ba Na Hills, visitors will experience four seasons in one day, travel on cable cars, 
+                                        immerse themselves in the natural landscape of the primeval forests in Ba Na, enjoy diverse cuisine and enjoy the festive atmosphere.
+                                    </li>
+                                </li>
+                                <li><span>
+                                    <i class="fa-regular fa-star"></i>
+                                    Linh Ung Pagoda
+                                </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Bai But, Tho Quang ward, Son Tra district
+                                    <br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Linh Ung Pagoda is one of three pagodas named Linh Ung in Da Nang. 
+                                        It is unclear whether it is by chance or fate that all three pagodas are located in prime locations in Da Nang city, forming a sacred "triangle" in the city.
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Linh Ung Ba Na Pagoda is located on the top of the high mountain of the resort "Da Lat of Central Vietnam" and 
+                                        Linh Ung Bai But, Son Tra, is located halfway up the mountain - Son Tra peninsula. 
+                                        Linh Ung Bai But Pagoda is the largest, newest and most beautiful pagoda of the 3 pagodas.
+                                    </li>
+                                </li> 
+
+                                <li><span>
+                                    <i class="fa-regular fa-star"></i>
+                                    Son Tra Peninsula
+                                </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    54 Nguyen Luong Bang, Hoa Khanh Bac Ward, Lien Chieu District
+                                    <br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        The Also known as the “green fairy”, covering an area of 3,439 hectares, Son Tra Peninsula has a cool climate all year round and the most diverse flora and fauna ecosystem in Da Nang. 
+                                        The nature here is famous for its wildness and poetic beauty, from Ban Co Peak, Black Rock Beach, Nghe Cape, Tien Sa Beach, But Beach to the Thousand-Year-Old Banyan Tree,
+                                    </li>
+                                </li>  
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+<!-- resort img-->
+        <div id="about-resort-img">
+            <div class="container">
+                <h1 class="sub-title">Resorts</h1>
+                <div class="service-list">
+                    <div class="service">
+                        <img src="/da nang/peninsula.jpg" alt="">
+                        <div class="layer">
+                            <h3>InterContinental Danang Sun Peninsula Resort</h3>
+                            <a href="https://www.danang.intercontinental.com/vn/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/da nang/fusionsuites.jpg" alt="">
+                        <div class="layer">
+                            <h3>Fusion Suites Danang Beach</h3>
+                            <a href="https://danang.fusion-suites.com/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/da nang/melia.jpg" alt="">
+                        <div class="layer">
+                            <h3>Melia Danang Resort</h3>
+                            <a href="https://www.melia.com/en/hotels/vietnam/da-nang/melia-danang-beach-resort/rooms"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                </div>
+                <a href="https://ticotravel.com.vn/resort-list/resort-da-nang/" class="btn">See more</a>
+            </div>
+        </div>
+<!-- transportation img -->
+        <div id="about-transportation-img">
+            <div class="container">
+                <h1 class="sub-title">Transportation</h1>
+                <div class="service-list">
+                    <div class="service">
+                        <img src="/da nang/road.jpg" alt="">
+                        <div class="layer">
+                            <h3>Road system</h3>
+                            <a href="http://danangtrucking.com/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/da nang/airway.jpg" alt="">
+                        <div class="layer">
+                            <h3>Airway system</h3>
+                            <a href="https://www.vietnamairport.vn/danangairport/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/da nang/water.jpg" alt="">
+                        <div class="layer">
+                            <h3>Waterway system</h3>
+                            <a href="https://bvhttdl.gov.vn/da-nang-tao-suc-hut-doi-voi-du-lich-duong-thuy-20240116104712728.htm"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                </div>
+                <a href="https://sgtvt.danang.gov.vn/" class="btn">See more</a>
+            </div>
+        </div>
+<!-- architecture img -->
+        <div id="about-architecture-img">
+            <div class="container">
+                <h1 class="sub-title">Architecture</h1>
+                <div class="service-list">
+                    <div class="service">
+                        <img src="/da nang/cau song han.jpg" alt="">
+                        <div class="layer">
+                            <h3>Han River Bridge</h3>
+                            <a href="https://vinpearl.com/vi/cau-song-han-bieu-tuong-da-nang-mang-ve-dep-ao-dieu"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/da nang/cau rong.jpg" alt="">
+                        <div class="layer">
+                            <h3>Dragon Bridge</h3>
+                            <a href="https://www.pullman-danang.com/vi/kham-pha/kham-pha/cau-rong-thanh-pho-da-nang/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/da nang/cau vang.jpg" alt="">
+                        <div class="layer">
+                            <h3>Golden Bridge</h3>
+                            <a href="https://special.tienphong.vn/special/23/w/tu_hien_tuong_cau_vang_den_niem_tu_hao_viet_nam.htm"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                </div>
+                <a href="https://www.klook.com/vi/blog/dia-diem-du-lich-da-nang/" class="btn">See more</a>
+            </div>
+        </div>
+<!-- tour img -->
+        <div id="about-tour-img">
+            <div class="container">
+                <h1 class="sub-title">Tourist Attraction</h1>
+                <div class="service-list">
+                    <div class="service">
+                        <img src="/da nang/ba na.jpg" alt="">
+                        <div class="layer">
+                            <h3>Sun World Ba Na Hills</h3>
+                            <a href="https://duan-sungroup.com/sun-world-ba-na-hills/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/da nang/linh ung.jpg" alt="">
+                        <div class="layer">
+                            <h3>Linh Ung Pagoda</h3>
+                            <a href="https://dulichsontra.com/chua-linh-ung"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/da nang/son tra.jpg" alt="">
+                        <div class="layer">
+                            <h3>Son Tra Peninsula</h3>
+                            <a href="https://dulichsontra.com/ban-dao-son-tra"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                </div>
+                <a href="https://vinpearl.com/vi/50-dia-diem-du-lich-da-nang-hap-dan-nhat-ban-tha-ho-lua-chon" class="btn">See more</a>
+            </div>
+        </div>
+
+<!-- Contact -->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact us</h1>
+                        <p><i class="fa-solid fa-envelope"></i>Fetel@gmail.com</p> 
+                        <p><i class="fa-solid fa-phone"></i>012345678   </p>
+                        <p></p>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/home"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-right">
+                        <form action="">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- form pop up-->
+    <script>
+        function signupToggle() {
+            var popup = document.querySelector('.sign-up-form');
+            popup.classList.toggle('active');
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+        }
+
+        function loginToggle() {
+            var popup = document.querySelector('.login-form');
+            popup.classList.toggle('active');
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+        }
+
+        function closeForms() {
+        document.querySelector('.sign-up-form').classList.remove('active');
+        document.querySelector('.login-form').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+    }
+    </script>
+<!-- about city -->
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname) {
+            // Hide information of tab
+            for(tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            // Hide information of tab
+
+            // Show information
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
+    </body>
+</html>
