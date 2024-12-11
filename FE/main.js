@@ -36,6 +36,18 @@ function searchCity() {
     document.getElementById('cityResults').innerHTML = `Tìm kiếm kết quả cho: ${searchValue}`;
 }
 
+// forgot pass
+function forgotPasswordToggle(event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById("forgotPasswordModal");
+    if (modal.style.display === "flex") {
+        modal.style.display = "none"; // Ẩn modal
+    } else {
+        modal.style.display = "flex"; // Hiển thị modal
+    }
+}
+
+
 // Hiển thị dịch vụ
 function showService() {
     document.getElementById('serviceList').innerHTML = `
@@ -43,3 +55,109 @@ function showService() {
         <p>Địa điểm, thông tin dịch vụ, đánh giá, xếp hạng...</p>
     `;
 }
+
+// api
+var web_API = 'http://localhost:8080/v3/api-docs';
+
+// register
+document.addEventListener('DOMContentLoaded', () => {
+    const registerForm = document.querySelector('.sign-up-form form');
+    const registerButton = document.getElementById('registerSubmit');
+
+    if (registerForm) {
+        registerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (!firstName || !lastName || !email || !password || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            const userData = {
+                firstName,
+                lastName,
+                email,
+                password,
+            };
+
+            fetch(web_API, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Register failed: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    alert('Registration successful');
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Error during registration');
+                });
+        });
+    }
+});
+
+// login 
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.querySelector('.login-form form');
+    const loginButton = document.getElementById('loginSubmit');
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            const loginData = { email, password };
+
+            fetch(web_API, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(loginData),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Login failed: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    alert('Login successful');
+                    console.log(data);
+
+                    localStorage.setItem('jwt', data.token);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Error during login');
+                });
+        });
+    }
+});
