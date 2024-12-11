@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ho Chi Minh City</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="main.js">
+        <script src="main.js"></script>
         <script src="https://kit.fontawesome.com/9e2020f946.js" crossorigin="anonymous"></script>
 
     </head>
@@ -40,13 +40,13 @@
                 </div>
                 <form action="#">
                     <div class="row-form">
-                        <input type="text" placeholder="First Name">
-                        <input type="text" placeholder="Last Name">
+                        <input id="firstName" type="text" placeholder="First Name">
+                        <input id="lastName" type="text" placeholder="Last Name">
                     </div>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <input type="password" placeholder="Confirm Password">
-                    <input class="submit" type="submit" value="Register">
+                    <input id="email" type="email" placeholder="Email" autocomplete="username">
+                    <input id="password" type="password" placeholder="Password" autocomplete="new-password">
+                    <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                    <input id="registerSubmit" type="submit" value="Register">
                 </form>
             </div>
         </div>
@@ -58,12 +58,30 @@
                     <h1>Login Form</h1>
                 </div>
                 <form action="#">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <input class="submit" type="submit" value="Login">
+                    <input id="loginEmail" type="email" placeholder="Email" autocomplete="username">
+                    <input id="loginPassword" type="password" placeholder="Password" autocomplete="new-password">
+                    <div class="row-form">
+                        <input id="loginSubmit" type="submit" value="Login">
+                        <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
+                    </div>
                 </form>
             </div>
         </div>
+
+        <div class="forgot-password-modal" id="forgotPasswordModal">
+            <div class="modal-content">
+                <div class="close" onclick="forgotPasswordToggle()">&times;</div>
+                <div class="text">
+                    <h1>Forgot Password</h1>
+                    <p>Enter your email to reset your password.</p>
+                </div>
+                <form action="#">
+                    <input id="forgotEmail" type="email" placeholder="Email" autocomplete="email" required>
+                    <input id="resetSubmit" type="submit" value="Reset Password">
+                </form>
+            </div>
+        </div>
+        
 <!-- about city -->
         <div id="about">
             <div class="container">
