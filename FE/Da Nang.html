@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Da Nang City</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="main.js">
+        <script src="main.js"></script>
         <script src="https://kit.fontawesome.com/9e2020f946.js" crossorigin="anonymous"></script>
 
     </head>
@@ -15,9 +15,9 @@
             <div class="navbar-left">
                 <img src="/city.jpg" alt="">
                 <li><a href="#">Home</a></li>
-                <li><a href="#about-resort-img">Resorts</a></li>
+                <li><a href="#about-resort-img">Resort</a></li>
                 <li><a href="#about-transportation-img">Transportation</a></li>
-                <li><a href="#about-architecture-img">Architecture </a></li>
+                <li><a href="#about-facilities-img">Architecture</a></li>
                 <li><a href="#about-tour-img">Tourist Attraction</a></li>
                 <li><a href="#contact">Contact</a></li>
             </div>
@@ -26,7 +26,7 @@
                     <input type="text" class="search-input" placeholder="Ho Chi Minh, Da Nang, Ha Noi">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <div class="sign-in" onclick="loginToggle()">Sign in</div>
+                <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
                 <div class="join-us" onclick="signupToggle()">Join us</div>
             </div>
         </div>
@@ -38,29 +38,47 @@
                 <div class="text">
                     <h1>Register Form</h1>
                 </div>
-                <form action="#">
+                <form id="registerForm" action="#">
                     <div class="row-form">
-                        <input type="text" placeholder="First Name">
-                        <input type="text" placeholder="Last Name">
+                        <input id="userName" type="text" placeholder="User Name">
+                        <input id="fullName" type="text" placeholder="Full Name">   
                     </div>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <input type="password" placeholder="Confirm Password">
-                    <input class="submit" type="submit" value="Register">
-                </form>
+                    <input id="email" type="email" placeholder="Email" autocomplete="username">
+                    <input id="password" type="password" placeholder="Password" autocomplete="new-password">
+                    <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                    <input id="registerSubmit" type="submit" value="Register">
+                </form>       
             </div>
         </div>
 
-        <div class="login-form">
+        <div class="login-form" id="loginFormContainer">
             <div class="form">
                 <div class="close" onclick="loginToggle()">&times;</div>
                 <div class="text">
                     <h1>Login Form</h1>
                 </div>
+                <form id="loginForm" action="#" onsubmit="handleLogin(event)">
+                    <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
+                    <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
+                    <div class="row-form">
+                        <input id="loginSubmit" type="submit" value="Login">
+                        <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="forgot-password-modal" id="forgotPasswordModal">
+            <div class="modal-content">
+                <div class="close" onclick="forgotPasswordToggle()">&times;</div>
+                <div class="text">
+                    <h1>Forgot Password</h1>
+                    <p>Type your new password</p>
+                </div>
                 <form action="#">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <input class="submit" type="submit" value="Login">
+                    <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="password" required>
+                    <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
+                    <input id="resetSubmit" type="submit" value="Reset Password">
                 </form>
             </div>
         </div>
