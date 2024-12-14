@@ -108,9 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Đăng ký thành công!");
             // Sau khi đăng ký thành công, bạn có thể đóng form, hoặc chuyển hướng người dùng
             closeForms(); // Đóng modal đăng ký
-        } else {
-            alert("Có lỗi xảy ra: " + data.message); // Hiển thị lỗi nếu có
-        }
+        } 
     })
     .catch(error => {
         console.error('Lỗi khi gọi API:', error);
