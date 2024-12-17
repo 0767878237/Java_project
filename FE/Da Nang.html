@@ -64,6 +64,11 @@
                         <input id="loginSubmit" type="submit" value="Login">
                         <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
                     </div>
+                    <div class="register-link">
+                        <p>Don't have an account?
+                            <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>
@@ -469,10 +474,28 @@
         }
 
         function closeForms() {
-        document.querySelector('.sign-up-form').classList.remove('active');
-        document.querySelector('.login-form').classList.remove('active');
-        document.querySelector('.overlay').classList.remove('active');
-    }
+            ['.sign-up-form', '.login-form', '.overlay'].forEach(selector => {
+                document.querySelector(selector).classList.remove('active');
+            });
+        }
+
+        function closeLogInForm() {
+            document.querySelector('.login-form').classList.remove('active');
+            document.querySelector('.overlay').classList.remove('active');
+        }
+
+        function toggleForm(formClass) {
+            var form = document.querySelector(formClass);
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+            form.classList.toggle('active');
+            closeLogInForm();
+            if (form.classList.contains('active')) {
+                overlay.classList.add('active');
+            } else {
+                overlay.classList.remove('active');
+            }
+        }
     </script>
 <!-- about city -->
     <script>
