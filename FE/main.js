@@ -1,15 +1,27 @@
 // Hiển thị và ẩn form đăng ký/đăng nhập
 function showRegister() {
-    document.getElementById('registerForm').style.display = 'block';
+    document.getElementById('registerForm').classList.add('active');
+    showOverlay();
 }
 
 function showLogin() {
-    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('loginForm').classList.add('active');
+    showOverlay();
 }
 
 function closeModal() {
-    document.getElementById('registerForm').style.display = 'none';
-    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').classList.remove('active');
+    document.getElementById('loginForm').classList.remove('active');
+    hideOverlay();
+}
+
+// overlay 
+function showOverlay() {
+    document.querySelector('.overlay').style.display = 'block';
+}
+
+function hideOverlay() {
+    document.querySelector('.overlay').style.display = 'none';
 }
 
 // Hàm đăng ký
@@ -41,9 +53,9 @@ function forgotPasswordToggle(event) {
     if (event) event.preventDefault();
     const modal = document.getElementById("forgotPasswordModal");
     if (modal.style.display === "flex") {
-        modal.style.display = "none"; // Ẩn modal
+        modal.style.display = "none";
     } else {
-        modal.style.display = "flex"; // Hiển thị modal
+        modal.style.display = "flex"; 
     }
 }
 
@@ -58,29 +70,25 @@ function showService() {
 // register
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault();  // Ngừng gửi form mặc định để xử lý theo cách riêng
-  
-    // Lấy giá trị từ các trường nhập liệu
+    event.preventDefault(); 
+
     const userName = document.getElementById("userName").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
     const fullName = document.getElementById("fullName").value;
-  
-    // Kiểm tra nếu mật khẩu và xác nhận mật khẩu giống nhau
+
     if (password !== confirmPassword) {
         alert("Mật khẩu và xác nhận mật khẩu không khớp!");
         return;
     }
-  
-    // Kiểm tra tính hợp lệ của email
+
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
         alert("Email không hợp lệ!");
         return;
     }
-  
-    // Kiểm tra mật khẩu phải có ít nhất 6 ký tự
+
     if (password.length < 6) {
         alert("Mật khẩu phải có ít nhất 6 ký tự!");
         return;
@@ -93,21 +101,19 @@ document.addEventListener("DOMContentLoaded", function() {
         password: password,
         fullName: fullName
     };
-  
-    // Gọi API để đăng ký người dùng
+
     fetch('http://localhost:8080/api/account/register', { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(userData)  // Chuyển đổi dữ liệu thành chuỗi JSON
+        body: JSON.stringify(userData) 
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
             alert("Đăng ký thành công!");
-            // Sau khi đăng ký thành công, bạn có thể đóng form, hoặc chuyển hướng người dùng
-            closeForms(); // Đóng modal đăng ký
+            closeForms(); 
         } 
     })
     .catch(error => {
@@ -170,3 +176,85 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 })
+
+// log out
+let isLoggedIn = false;  // Track login state
+
+// Function to handle login
+function handleLogin(event) {
+    event.preventDefault();  // Prevent default form submission
+
+    const username = document.getElementById('loginUserName').value;
+    const password = document.getElementById('loginPassword').value;
+
+    // Simple validation for empty fields (can be extended for more checks)
+    if (username && password) {
+        isLoggedIn = true;  // Set login state to true
+        updateLoginButton();  // Update the button text to "Log out"
+        closeLoginForm();  // Hide the login form
+        alert('You are now logged in');  // Optionally alert user
+    } else {
+        alert('Please enter valid credentials');
+    }
+}
+
+// Function to toggle the login form visibility
+function loginToggle() {
+    const loginForm = document.getElementById('loginFormContainer');
+    const overlay = document.querySelector('.overlay');
+    
+    // Check if login form is currently visible
+    if (loginForm.classList.contains('active')) {
+        // If the form is already active, hide it
+        loginForm.classList.remove('active');
+        overlay.style.display = 'none';  // Hide overlay
+    } else {
+        // If the form is not active, show it
+        loginForm.classList.add('active');
+        overlay.style.display = 'block';  // Show overlay
+    }
+}
+
+// Function to close the login form
+function closeLoginForm() {
+    const loginForm = document.getElementById('loginFormContainer');
+    const overlay = document.querySelector('.overlay');
+    loginForm.classList.remove('active');  // Remove active class to hide the form
+    overlay.style.display = 'none';  // Hide overlay
+}
+
+// Function to reset login form state
+function resetLoginForm() {
+    document.getElementById('loginUserName').value = '';  // Clear username input
+    document.getElementById('loginPassword').value = '';  // Clear password input
+}
+
+// Function to toggle between "Sign in" and "Log out" buttons
+function updateLoginButton() {
+    const signInBtn = document.getElementById('signInBtn');
+    if (isLoggedIn) {
+        signInBtn.textContent = 'Log out';
+        signInBtn.onclick = logout;  // Change the onclick to logout function
+    } else {
+        signInBtn.textContent = 'Sign in';
+        signInBtn.onclick = loginToggle;  // Reset back to login
+    }
+}
+
+// Logout function
+function logout() {
+    isLoggedIn = false;  // Set login state to false
+    updateLoginButton();  // Update the button text back to "Sign in"
+    resetLoginForm();  // Reset the form to its initial empty state
+    closeLoginForm();  // Hide login form and overlay after logout
+    alert('You have been logged out');
+}
+
+// Function to toggle between login and signup forms
+function toggleLogin() {
+    if (isLoggedIn) {
+        logout();  // If already logged in, log out
+    } else {
+        loginToggle();  // Show the login form if user is not logged in
+    }
+}
