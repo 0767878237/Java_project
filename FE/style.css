@@ -195,6 +195,19 @@ html {
     opacity: 1;
 }
 
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.register-link a {
+    text-decoration: none;
+    color: #E2012D;
+    margin-left: 20px;
+}
+
 /* forgot pass */
 .forgotPassword {
     font-size: 1.4rem;
