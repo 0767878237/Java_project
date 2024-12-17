@@ -90,22 +90,24 @@ html {
 }
 
 .sign-in {
-    background-color: #ff004f;
+    background-color: #EB4D37;
+    font-size: 1.2rem;
 }
 
 .join-us {
-    background-color: #d83333;
+    background-color: #F9D342;
     color: #fff;
+    font-size: 1.2rem;
 }
 
 .join-us:hover {
-    background-color: rgba(96, 228, 177, 0.863);
+    background-color: #89AAE5;
     cursor: pointer;
 }
 
 .sign-in:hover {
     cursor: pointer;
-    background-color: rgba(241, 238, 238, 0.966);
+    background-color: #FCE77C;
 }
 
 /* form */
