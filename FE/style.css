@@ -157,6 +157,10 @@ html {
     align-items: center;
 }
 
+.row-form {
+    margin: 0;
+}
+
 .form .row-form input {
     margin-bottom: 0;
     flex: 1;
