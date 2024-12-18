@@ -115,6 +115,7 @@ html {
     display: flex;
     justify-items: center;
     position: relative;
+    display: none;
 }
 
 .user:hover .user-menu {
