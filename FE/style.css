@@ -50,6 +50,7 @@ html {
     font-weight: 700;
     text-decoration: none;
     color: #fff;
+    font-size: 0.6rem;
 }
 
 .navbar-left li {
@@ -108,6 +109,74 @@ html {
 .sign-in:hover {
     cursor: pointer;
     background-color: #FCE77C;
+}
+/* user infor */
+.user {
+    display: flex;
+    justify-items: center;
+    position: relative;
+}
+
+.user:hover .user-menu {
+    display: block;
+}
+
+.user-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+
+.user-name {
+    margin-left: 10px;
+    margin-top: 8px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.user-menu {
+    position: absolute;
+    padding-left: 0;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 5px;
+    width: 120px;
+    list-style: none;
+    display: none;
+}
+
+.user-menu::before {
+    content: "";
+    border-width: 20px 20px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    top: -37px;
+    right: 3px;
+}
+
+.user-items a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.8rem;
+    padding: 4px 16px;
+    display: block;
+    box-shadow: 0 1px 2px #e0e0e0;
+}
+
+.user-items a:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.user-items a:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}   
+
+.user-items a:hover {
+    background-color: #fafafa;
 }
 
 /* form */
