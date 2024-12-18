@@ -15,6 +15,13 @@ function closeModal() {
     hideOverlay();
 }
 
+function closeLoginForm() {
+    const loginForm = document.getElementById('loginFormContainer');
+    const overlay = document.querySelector('.overlay');
+    loginForm.classList.remove('active'); 
+    overlay.style.display = 'none'; 
+}
+
 // overlay 
 function showOverlay() {
     document.querySelector('.overlay').style.display = 'block';
@@ -165,7 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {  
                 const result = await response.json();
                 alert('Login successful!');
-                closeModal(); // Close the modal
+                closeLoginForm(); // Close the modal
+                document.querySelector('.sign-in').style.display = 'none';
+                document.querySelector('.join-us').style.display = 'none';
+                document.querySelector('.user').style.display = 'flex';
             } else {
                 const error = await response.json();
                 alert(`Login failed: ${error.message || 'Unknown error'}`);
@@ -178,83 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // log out
-let isLoggedIn = false;  // Track login state
-
-// Function to handle login
-function handleLogin(event) {
-    event.preventDefault();  // Prevent default form submission
-
-    const username = document.getElementById('loginUserName').value;
-    const password = document.getElementById('loginPassword').value;
-
-    // Simple validation for empty fields (can be extended for more checks)
-    if (username && password) {
-        isLoggedIn = true;  // Set login state to true
-        updateLoginButton();  // Update the button text to "Log out"
-        closeLoginForm();  // Hide the login form
-        alert('You are now logged in');  // Optionally alert user
-    } else {
-        alert('Please enter valid credentials');
-    }
-}
-
-// Function to toggle the login form visibility
-function loginToggle() {
-    const loginForm = document.getElementById('loginFormContainer');
-    const overlay = document.querySelector('.overlay');
-    
-    // Check if login form is currently visible
-    if (loginForm.classList.contains('active')) {
-        // If the form is already active, hide it
-        loginForm.classList.remove('active');
-        overlay.style.display = 'none';  // Hide overlay
-    } else {
-        // If the form is not active, show it
-        loginForm.classList.add('active');
-        overlay.style.display = 'block';  // Show overlay
-    }
-}
-
-// Function to close the login form
-function closeLoginForm() {
-    const loginForm = document.getElementById('loginFormContainer');
-    const overlay = document.querySelector('.overlay');
-    loginForm.classList.remove('active');  // Remove active class to hide the form
-    overlay.style.display = 'none';  // Hide overlay
-}
-
-// Function to reset login form state
-function resetLoginForm() {
-    document.getElementById('loginUserName').value = '';  // Clear username input
-    document.getElementById('loginPassword').value = '';  // Clear password input
-}
-
-// Function to toggle between "Sign in" and "Log out" buttons
-function updateLoginButton() {
-    const signInBtn = document.getElementById('signInBtn');
-    if (isLoggedIn) {
-        signInBtn.textContent = 'Log out';
-        signInBtn.onclick = logout;  // Change the onclick to logout function
-    } else {
-        signInBtn.textContent = 'Sign in';
-        signInBtn.onclick = loginToggle;  // Reset back to login
-    }
-}
-
-// Logout function
-function logout() {
-    isLoggedIn = false;  // Set login state to false
-    updateLoginButton();  // Update the button text back to "Sign in"
-    resetLoginForm();  // Reset the form to its initial empty state
-    closeLoginForm();  // Hide login form and overlay after logout
-    alert('You have been logged out');
-}
-
-// Function to toggle between login and signup forms
-function toggleLogin() {
-    if (isLoggedIn) {
-        logout();  // If already logged in, log out
-    } else {
-        loginToggle();  // Show the login form if user is not logged in
-    }
-}
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("log-out").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link action
+        
+        localStorage.clear();
+        sessionStorage.clear();
+        alert("You have logged out")
+    });
+})
