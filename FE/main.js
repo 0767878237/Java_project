@@ -9,6 +9,11 @@ function showLogin() {
     showOverlay();
 }
 
+function showMyAccount() {
+    const accountModal = document.querySelector('.my_account');
+    accountModal.classList.toggle('active'); 
+}
+
 function closeModal() {
     document.getElementById('registerForm').classList.remove('active');
     document.getElementById('loginForm').classList.remove('active');
@@ -18,11 +23,10 @@ function closeModal() {
 function closeLoginForm() {
     const loginForm = document.getElementById('loginFormContainer');
     const overlay = document.querySelector('.overlay');
-    loginForm.classList.remove('active'); 
-    overlay.style.display = 'none'; 
+    loginForm.classList.remove('active');  // Remove active class to hide the form
+    overlay.style.display = 'none';  // Hide overlay
 }
 
-// overlay 
 function showOverlay() {
     document.querySelector('.overlay').style.display = 'block';
 }
@@ -60,11 +64,12 @@ function forgotPasswordToggle(event) {
     if (event) event.preventDefault();
     const modal = document.getElementById("forgotPasswordModal");
     if (modal.style.display === "flex") {
-        modal.style.display = "none";
+        modal.style.display = "none"; // Ẩn modal
     } else {
-        modal.style.display = "flex"; 
+        modal.style.display = "flex"; // Hiển thị modal
     }
 }
+
 
 // Hiển thị dịch vụ
 function showService() {
@@ -77,25 +82,29 @@ function showService() {
 // register
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault(); 
-
+    event.preventDefault();  // Ngừng gửi form mặc định để xử lý theo cách riêng
+  
+    // Lấy giá trị từ các trường nhập liệu
     const userName = document.getElementById("userName").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
     const fullName = document.getElementById("fullName").value;
-
+  
+    // Kiểm tra nếu mật khẩu và xác nhận mật khẩu giống nhau
     if (password !== confirmPassword) {
         alert("Mật khẩu và xác nhận mật khẩu không khớp!");
         return;
     }
-
+  
+    // Kiểm tra tính hợp lệ của email
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
         alert("Email không hợp lệ!");
         return;
     }
-
+  
+    // Kiểm tra mật khẩu phải có ít nhất 6 ký tự
     if (password.length < 6) {
         alert("Mật khẩu phải có ít nhất 6 ký tự!");
         return;
@@ -108,20 +117,22 @@ document.addEventListener("DOMContentLoaded", function() {
         password: password,
         fullName: fullName
     };
-
+  
+    // Gọi API để đăng ký người dùng
     fetch('http://localhost:8080/api/account/register', { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(userData) 
+        body: JSON.stringify(userData)  // Chuyển đổi dữ liệu thành chuỗi JSON
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
             alert("Đăng ký thành công!");
-            closeForms(); 
-        } 
+            // Sau khi đăng ký thành công, bạn có thể đóng form, hoặc chuyển hướng người dùng
+            closeForms(); // Đóng modal đăng ký
+        }
     })
     .catch(error => {
         console.error('Lỗi khi gọi API:', error);
@@ -130,13 +141,11 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
   function closeForms() {
-    // Hàm để đóng modal
     document.querySelector('.sign-up-form').style.display = 'none';
     document.querySelector('.overlay').style.display = 'none';
   }
   
   function signupToggle() {
-    // Hàm để mở/đóng modal
     const form = document.querySelector('.sign-up-form');
     const overlay = document.querySelector('.overlay');
     if (form.style.display === 'none' || form.style.display === '') {
@@ -189,11 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // log out
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("log-out").addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default link action
-        
+    document.getElementById("log-out").addEventListener("click", function (event) { 
         localStorage.clear();
         sessionStorage.clear();
         alert("You have logged out")
     });
 })
+
