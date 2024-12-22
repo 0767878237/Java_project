@@ -30,17 +30,17 @@
                 <div class="join-us" onclick="signupToggle()">Join us</div>
                 <div class="user">
                     <img src="https://www.gravatar.com/avatar/edba7a780125c6e32a506ba87245bcd3.jpg?s=80&d=mp&r=g" alt="" class="user-img">
-                    <span class="user-name">test</span>
+                    <span class="user-name">Loading...</span>
 
                     <ul class="user-menu">
                         <li class="user-items">
-                            <a href="">My Account</a>
+                            <div class="user-setting" onclick="showMyAccount()">My Account</div>
                         </li>
                         <li class="user-items">
-                            <a href="">Help</a>
+                            <div class="user-setting">Help</div>
                         </li>
                         <li class="user-items">
-                            <a href="" id="log-out">Log Out</a>
+                            <a href="" class="user-setting" id="log-out">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -57,13 +57,12 @@
                 <form id="registerForm" action="#">
                     <div class="row-form">
                         <input id="userName" type="text" placeholder="User Name">
-                        <input id="fullName" type="text" placeholder="Full Name">
-                        
+                        <input id="fullName" type="text" placeholder="Full Name">   
                     </div>
                     <input id="email" type="email" placeholder="Email" autocomplete="username">
                     <input id="password" type="password" placeholder="Password" autocomplete="new-password">
                     <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password">
-                    <input id="registerSubmit" type="submit" value="Register">
+                    <input id="registerSubmit" type="submit" value="Register" style="cursor: pointer;">
                 </form>       
             </div>
         </div>
@@ -74,11 +73,11 @@
                 <div class="text">
                     <h1>Login Form</h1>
                 </div>
-                <form id="loginForm" action="#"">
+                <form id="loginForm" action="#">
                     <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
                     <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
                     <div class="row-form">
-                        <input id="loginSubmit" type="submit" value="Login">
+                        <input id="loginSubmit" type="submit" value="Login" style="cursor: pointer;">
                         <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
                     </div>
                     <div class="register-link">
@@ -90,6 +89,23 @@
             </div>
         </div>
 
+        <div class="my_account">
+            <div class="form">
+                <div class="close" onclick="accountToggle()">&times;</div>
+                <div class="text">
+                    <h1>Account Setting</h1>
+                </div>
+                <form id="accountForm" action="#">
+                    <div class="row-form">
+                        <input id="accountUserName" type="text" placeholder="New User Name">
+                        <input id="accountFullName" type="text" placeholder="New Full Name">   
+                    </div>
+                    <input id="accountEmail" type="email" placeholder="New Email" autocomplete="username">
+                    <input id="accountSubmit" type="submit" value="Change" style="cursor: pointer;">
+                </form>       
+            </div>
+        </div>
+
         <div class="forgot-password-modal" id="forgotPasswordModal">
             <div class="modal-content">
                 <div class="close" onclick="forgotPasswordToggle()">&times;</div>
@@ -98,8 +114,8 @@
                     <p>Type your new password</p>
                 </div>
                 <form action="#" id="forgotPasswordForm">
-                    <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
-                    <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="password" required>
+                    <input id="Name" type="text" placeholder="User Name" autocomplete="username">
+                    <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="current-password" required>
                     <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
                     <input id="resetSubmit" type="submit" value="Reset Password">
                 </form>
@@ -325,20 +341,91 @@
                         <div class="layer">
                             <h3>Villa Sông</h3>
                             <a href="https://villasong.com/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                3.0(2200) 😊
+                            </div>
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="rating" value="5" />
+                                <label for="star5" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4" name="rating" value="4" />
+                                <label for="star4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3" name="rating" value="3" />
+                                <label for="star3" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2" name="rating" value="2" />
+                                <label for="star2" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1" name="rating" value="1" />
+                                <label for="star1" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
                         </div>
                     </div>
                     <div class="service">
                         <img src="/HoChiMinh/thao dien.jpg" alt="">
                         <div class="layer">
                             <h3>Thao Dien Boutique Hotel</h3>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                4.0(2200) 😊
+                            </div>
                             <a href="https://thao-dien-boutique.hotelshochiminhcity.net/vi/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_1 "name="rating" value="5" />
+                                    <label for="star5_1" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_1" name="rating" value="4" />
+                                    <label for="star4_1" class="star">&#9733;</label>
+                                    <input type="radio" id="star3_1" name="rating1" value="3" />
+                                    <label for="star3_1" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_1" name="rating" value="2" />
+                                    <label for="star2_1" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_1" name="rating" value="1" />
+                                    <label for="star1_1" class="star">&#9733;</label>
+
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>  
                         </div>
                     </div>
                     <div class="service">
                         <img src="/HoChiMinh/chloe.jpg" alt="">
                         <div class="layer">
                             <h3>Chloe Gallery</h3>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                5.0(2200) 😘
+                            </div>
                             <a href="https://www.agoda.com/vi-vn/chloe-gallery/hotel/ho-chi-minh-city-vn.html"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_2" name="rating" value="5" />
+                                    <label for="star5_2" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_2" name="rating" value="4" />
+                                    <label for="star4_2" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_2" name="rating" value="3" />
+                                    <label for="star3_2" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_2" name="rating" value="2" />
+                                    <label for="star2_2" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_2" name="rating" value="1" />
+                                    <label for="star1_2" class="star">&#9733;</label>
+
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -384,21 +471,96 @@
                         <img src="/HoChiMinh/landmark.jpg" alt="">
                         <div class="layer">
                             <h3>Landmark 81</h3>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                5.0(2200) 😘
+                            </div>
                             <a href="https://vinhomecentralpark.com/landmark-81-co-gi/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_3" name="rating" value="5" />
+                                    <label for="star5_3" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_3" name="rating" value="4" />
+                                    <label for="star4_3" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_3" name="rating" value="3" />
+                                    <label for="star3_3" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_3" name="rating" value="2" />
+                                    <label for="star2_3" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_3" name="rating" value="1" />
+                                    <label for="star1_3" class="star">&#9733;</label>
+
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>
                         </div>
                     </div>
                     <div class="service">
                         <img src="/HoChiMinh/bitexco.jpg" alt="">
                         <div class="layer">
                             <h3>Bitexco Financial Tower</h3>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                4.0(45) 😊
+                            </div>
                             <a href="http://www.bitexcofinancialtower.com/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>
                         </div>
                     </div>
                     <div class="service">
                         <img src="/HoChiMinh/Empire city.jpg" alt="">
                         <div class="layer">
                             <h3>Empire City Tower</h3>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                4.0(45) 😊
+                              </div>
                             <a href="https://empirecityvn.com/empire-city-88-tower/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -414,27 +576,220 @@
                         <img src="/HoChiMinh/cho ben thanh.jpg" alt="">
                         <div class="layer">
                             <h3> Ben Thanh Market</h3>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                4.0(45) 😊
+                            </div>
                             <a href="https://vinpearl.com/vi/cho-ben-thanh-o-dau-kinh-nghiem-di-cho-cho-khach-du-lich"><i class="fa-solid fa-up-right-from-square"></i></a>
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_8" name="rating" value="5" />
+                                    <label for="star5_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_8" name="rating" value="4" />
+                                    <label for="star4_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_8" name="rating" value="3" />
+                                    <label for="star3_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_8" name="rating" value="2" />
+                                    <label for="star2_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_8" name="rating" value="1" />
+                                    <label for="star1_8" class="star">&#9733;</label>
+
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
                         </div>
                     </div>
                     <div class="service">
                         <img src="/HoChiMinh/dinh doc lap.jpg" alt="">
                         <div class="layer">
                             <h3>Independence Palace</h3>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                4.0(45) 😊
+                            </div>
                             <a href="https://www.dinhdoclap.gov.vn/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_8" name="rating" value="5" />
+                                    <label for="star5_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_8" name="rating" value="4" />
+                                    <label for="star4_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_8" name="rating" value="3" />
+                                    <label for="star3_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_8" name="rating" value="2" />
+                                    <label for="star2_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_8" name="rating" value="1" />
+                                    <label for="star1_8" class="star">&#9733;</label>
+
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
                         </div>
                     </div>
                     <div class="service">
                         <img src="/HoChiMinh/nha tho duc ba.jpg" alt="">
                         <div class="layer">
                             <h3>Immaculate Conception Cathedral Basilica</h3>
+                            <div class="popular__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                4.0(45) 😊
+                            </div>
                             <a href="https://vinpearl.com/vi/nha-tho-duc-ba-diem-du-lich-phai-check-in-khi-den-sai-gon"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_8" name="rating" value="5" />
+                                    <label for="star5_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_8" name="rating" value="4" />
+                                    <label for="star4_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_8" name="rating" value="3" />
+                                    <label for="star3_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_8" name="rating" value="2" />
+                                    <label for="star2_8" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_8" name="rating" value="1" />
+                                    <label for="star1_8" class="star">&#9733;</label>
+
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
                         </div>
                     </div>
                 </div>
                 <a href="https://vinpearl.com/vi/toplist-dia-diem-du-lich-sai-gon-nghe-la-muon-xach-balo-len-va-di" class="btn">See more</a>
             </div>
         </div>
+
+<!-- Rank -->
+<div class="ranking-container">
+    <h2>Architecture</h2>
+    <ul class="ranking-list" id="ranking-list-1">
+        <li class="ranking-item">
+            <span class="ranking-name">Landmark 81</span>
+            <span class="ranking-stars">⭐⭐⭐⭐⭐</span> <!-- 5 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <li class="ranking-item">
+            <span class="ranking-name">Bitexco Financial Tower</span>
+            <span class="ranking-stars">⭐⭐⭐⭐</span> <!-- 4 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <li class="ranking-item">
+            <span class="ranking-name">Empire City Tower</span>
+            <span class="ranking-stars">⭐⭐⭐⭐</span> <!-- 3 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <!-- Thêm các địa điểm khác -->
+    </ul>
+</div>
+    <!-- Rank resort-->
+<div class="ranking-container">
+    <h2>Tourist Attraction</h2>
+    <ul class="ranking-list" id="ranking-list-2">
+        <li class="ranking-item">
+            <span class="ranking-name">Independence Palace</span>
+            <span class="ranking-stars">⭐⭐⭐⭐⭐</span> <!-- 5 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <li class="ranking-item"> 
+            <span class="ranking-name">Immaculate Conception Cathedral Basilica</span>
+            <span class="ranking-stars">⭐⭐⭐⭐</span> <!-- 4 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <li class="ranking-item">
+            <span class="ranking-name">Ben Thanh Market</span>
+            <span class="ranking-stars">⭐⭐⭐⭐</span> <!-- 4 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <!-- Thêm các địa điểm khác -->
+    </ul>
+</div>
+        
+<!-- Rank Resort-->
+<div class="ranking-container">
+    <h2>Resort rankings</h2>
+    <ul class="ranking-list" id="ranking-list-3">
+
+        <li class="ranking-item">
+            <span class="ranking-name">Chloe Gallery</span>
+            <span class="ranking-stars">⭐⭐⭐⭐⭐</span> <!-- 5 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <li class="ranking-item">
+            <span class="ranking-name">Thao Dien Boutique Hotel</span>
+            <span class="ranking-stars">⭐⭐⭐⭐</span> <!-- 4 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <li class="ranking-item">
+            <span class="ranking-name">Villa Sông</span>
+            <span class="ranking-stars">⭐⭐⭐</span> <!-- 3 sao -->
+            <span class="ranking-reviews">(2200 reviews)</span>
+        </li>
+        <!-- Thêm các địa điểm khác -->
+    </ul>
+</div>
+<!-- Reviews-->
+<div class="section__container">
+    <div class="header">
+    <p>TESTIMONIALS</p>
+    <h1>What our clients say about us.</h1>
+    </div>
+    <div class="testimonials__grid">
+    <div class="card">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <p>
+        I went to Ho Chi Minh 3 months ago.
+        Independence Palace is the place that impressed me the most about the architecture as well as the events heard from the tour guide. 
+        It was great to explore.
+        </p>
+        <hr />
+        <img src="/assets/person3.jpg" alt="user" />
+        <p class="name">Allan Collins</p>
+    </div>
+    <div class="card">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <p>
+        Landmark 81 is the tallest building I've ever visited. 
+        Eating "Pho" at such a high place is crazy.
+        </p>
+        <hr />
+        <img src="/assets/person1.jpg" alt="user" />
+        <p class="name">Clay jinne   </p>
+    </div>
+    <div class="card">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <p>
+        I will definitely come to Ho Chi Minh again. Everyone there is very friendly and cheerful.
+        </p>
+        <hr />
+        <img src="/assets/person12.jpg" alt="user" />
+        <p class="name">Min Park</p>
+    </div>
+    </div>
+    <div class="footer">
+    <h4>No two homes are alike!</h4>
+    <p>
+        Our website will help you plan your trip to Vietnam.
+        If you have any questions, please do not hesitate to contact us.
+            See you in Vietnam.
+    </p>
+        GET A QUOTE
+    </div>
+</div>
+
 <!-- Contact -->
         <div id="contact">
             <div class="container">
@@ -451,7 +806,7 @@
                         </div>
                     </div>
                     <div class="contact-right">
-                        <form action="">
+                        <form action="" name="submit-to-google-sheet">
                             <input type="text" name="Name" placeholder="Your Name" required>
                             <input type="email" name="email" placeholder="Your Email" required>
                             <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
@@ -478,10 +833,16 @@
             overlay.classList.toggle('active');
         }
 
-         function closeForms() {
-            ['.sign-up-form', '.login-form', '.overlay'].forEach(selector => {
-                document.querySelector(selector).classList.remove('active');
-            });
+        function accountToggle() {
+            var popup = document.querySelector('.my_account');
+            popup.classList.toggle('active');
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+        }
+        function closeForms() {
+        ['.sign-up-form', '.login-form', '.overlay'].forEach(selector => {
+            document.querySelector(selector).classList.remove('active');
+        });
         }
 
         function closeLogInForm() {
@@ -520,6 +881,19 @@
             event.currentTarget.classList.add("active-link");
             document.getElementById(tabname).classList.add("active-tab")
         }
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzWc4vGnHB6FnB4R3o6BC_DORamaspZWOMtO2qhBl5kBOvkCSMz1p8GA68iZv5pe3Y1Lw/exec';
+        const form = document.forms['submit-to-google-sheet'];
+
+        form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => response.json())
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message));
+        });
     </script>
     </body>
 </html>
