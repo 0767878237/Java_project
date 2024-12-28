@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ha Noi City</title>
+        <link rel="stylesheet" href="/style.css">
+        <script src="/main.js"></script>
+        <script src="https://kit.fontawesome.com/9e2020f946.js" crossorigin="anonymous"></script>
+
+    </head>
+<body>
+    <!-- navbar header -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="/city.jpg" alt="">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about-resort-img">Resort</a></li>
+            <li><a href="#about-transportation-img">Transportation</a></li>
+            <li><a href="#about-architecture-img">Architecture</a></li>
+            <li><a href="#about-tour-img">Tourist Attraction</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </div>
+        <div class="navbar-right">
+            <div class="search">
+                <input type="text" id="search-input" class="search-input" placeholder="Cities, Services, e.g">
+                <button id="search-btn" class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
+            <div class="join-us" onclick="signupToggle()">Join us</div>
+        </div>
+    </div>
+    <!-- modal pop up -->
+    <div class="overlay" onclick="closeForms()"></div>
+    <div class="sign-up-form">
+        <div class="form">
+            <div class="close" onclick="signupToggle()">&times;</div>
+            <div class="text">
+                <h1>Register Form</h1>
+            </div>
+            <form id="registerForm" action="#">
+                <div class="row-form">
+                    <input id="userName" type="text" placeholder="User Name">
+                    <input id="fullName" type="text" placeholder="Full Name">   
+                </div>
+                <input id="email" type="email" placeholder="Email" autocomplete="username">
+                <input id="password" type="password" placeholder="Password" autocomplete="new-password">
+                <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                <input id="registerSubmit" type="submit" value="Register">
+            </form>       
+        </div>
+    </div>
+
+    <div class="login-form" id="loginFormContainer">
+        <div class="form">
+            <div class="close" onclick="loginToggle()">&times;</div>
+            <div class="text">
+                <h1>Login Form</h1>
+            </div>
+            <form id="loginForm" action="#" onsubmit="handleLogin(event)">
+                <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
+                <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
+                <div class="row-form">
+                    <input id="loginSubmit" type="submit" value="Login">
+                    <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
+                </div>
+                <div class="register-link">
+                    <p>Don't have an account?
+                        <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="forgot-password-modal" id="forgotPasswordModal">
+        <div class="modal-content">
+            <div class="close" onclick="forgotPasswordToggle()">&times;</div>
+            <div class="text">
+                <h1>Forgot Password</h1>
+                <p>Type your new password</p>
+            </div>
+            <form action="#" id="forgotPasswordForm">
+                <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
+                <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="password" required>
+                <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
+                <input id="resetSubmit" type="submit" value="Reset Password">
+            </form>
+        </div>
+    </div>
+<!-- about city -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="/HaNoi/ha noi.jpg" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">Ha Noi</h1>
+                    <p>
+                        Hanoi is the capital, a centrally governed city and one of two special urban areas of the Socialist Republic of Vietnam. 
+                        This is the largest city in Vietnam, located as the political center, one of two important economic, cultural and educational centers in Vietnam.
+                        With terrain including the central plain and mountainous areas in the north and west of the city. 
+                        With an area of 3,359.82 km², and a population of 8.4 million people, Hanoi is the largest centrally governed city in Vietnam, and is also the second most populous city and has the second highest population density among the 63 provincial administrative units of Vietnam.
+                    </p>
+    
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('resorts')">Resorts</p>
+                        <p class="tab-links" onclick="opentab('transportation')">Transportation</p>
+                        <p class="tab-links"onclick="opentab('architecture')">Architecture</p>
+                        <p class="tab-links"onclick="opentab('tour')">Tourist destination</p>
+                    </div>
+                    <!-- resort -->
+                    <div class="tab-contents active-tab" id="resorts">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Tomodachi Lang Mit
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Trai Lang village, Co Dong commune, Son Tay town
+                                </li>
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Thang May Village & Resort
+                                </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Chong hamlet, Yen Bai commune, Ba Vi district
+                                </li>
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Melia Ba Vi Mountain Retreat
+                                </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        Ba Vi National Park, Ba Vi District
+                                    </li>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- transportation -->
+                    <div class="tab-contents" id="transportation">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-plane"></i>
+                                Airway system
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    Noi Bai International Airport is the largest international airport in Northern Vietnam, serving mainly the capital Hanoi and surrounding areas.
+                                </li>
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-train"></i>
+                                Railway system
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    The urban railway system in Hanoi includes 10 urban railway lines with a total length of about 417.8 km and 3 monorail lines with a length of 44 km,
+                                    the total length of the network when completed is expected to be 461.8 km.
+                                </li>
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-anchor"></i>
+                                Waterway system
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    With 7 major rivers flowing through it, Hanoi plays an extremely important role in 
+                                    the overall national inland waterway network in general as well as the Northern region and the Red River Delta in particular.
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- architecture -->
+                    <div class="tab-contents" id="architecture">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                Landmark 72
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Pham Hung Street, Nam Tu Liem District    
+                            </li>
+                            </li>
+                            
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                Temple of Literature - Imperial Academy
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                8 Quoc Tu Giam Street, Van Mieu Ward, Dong Da District
+                            </li>
+                            </li> 
+
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                One Pillar Pagoda
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Doi Can ward, Ba Dinh district
+                            </li>
+                            </li>  
+                        </ul>
+                    </div>
+                    <!-- Tourist destination -->
+                    <div class="tab-contents" id="tour">
+                        <ul>
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Vietnam Military History Museum
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Tay Mo and Dai Mo, Nam Tu Liem district
+                            </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Ho Chi Minh Mausoleum
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                2 Hung Vuong Street, Ba Dinh
+                            </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Ngoc Son Temple, Turtle Towe - Hoan Kiem Lake
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Dinh Tien Hoang, Hang Trong, Hoan Kiem District
+                            </li>
+                            </li>     
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+<!-- resort img -->
+    <div id="about-resort-img">
+        <div class="container">
+            <h1 class="sub-title">Resorts</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/HaNoi/Resorts/tomodachi.jpg" alt="">
+                    <div class="layer">
+                        <h3>Tomodachi Lang Mit</h3>
+                        <a href="https://www.tomodachiretreat.com/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HaNoi/Resorts/thang may.jpg" alt="">
+                    <div class="layer">
+                        <h3>Thang May Village & Resort</h3>
+                        <a href="https://ticotravel.com.vn/resort/thang-may-village/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HaNoi/Resorts/melia.jpg" alt="">
+                    <div class="layer">
+                        <h3>Melia Ba Vi Mountain Retreat</h3>                      
+                        <a href="https://www.meliabavi.com/?lang=vi"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <a href="/HaNoi/Resorts/Resorts.html" class="btn">See more</a>
+        </div>
+    </div>
+<!-- transportation img -->
+    <div id="about-transportation-img">
+        <div class="container">
+            <h1 class="sub-title">Transportation</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/HaNoi/noi bai.jpg" alt="">
+                    <div class="layer">
+                        <h3>Airway system</h3>
+                        <a href="https://www.noibaiairport.vn/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HaNoi/railway.jpg" alt="">
+                    <div class="layer">
+                        <h3>Railway system</h3>
+                        <a href="https://hanoimetro.net.vn/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HaNoi/waterway.jpg" alt="">
+                    <div class="layer">
+                        <h3>Waterway system</h3>
+                        <a href="https://hanoimoi.vn/ha-noi-day-manh-khai-thac-cac-tuyen-du-lich-duong-thuy-660399.html"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    </div>
+                </div>
+            </div>
+            <a href="https://sogtvt.hanoi.gov.vn/" class="btn">See more</a>
+        </div>
+    </div>
+<!-- architecture img -->
+    <div id="about-architecture-img">
+        <div class="container">
+            <h1 class="sub-title">Architecture</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/HaNoi/Architectures/landmark72.jpg" alt="">
+                    <div class="layer">
+                        <h3>Landmark 72</h3>                          
+                        <a href="https://landmark72.com/"><i class="fa-solid fa-up-right-from-square"></i></a> 
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div>                           
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HaNoi/Architectures/van mieu.jpg" alt="">
+                    <div class="layer">
+                        <h3>Temple of Literature - Imperial Academy</h3>                           
+                        <a href="https://vinpearl.com/vi/van-mieu-quoc-tu-giam"><i class="fa-solid fa-up-right-from-square"></i></a>    
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HaNoi/Architectures/chua mot cot.jpg" alt="">
+                    <div class="layer">
+                        <h3>One Pillar Pagoda</h3>                          
+                        <a href="https://vinpearl.com/vi/chua-mot-cot-ha-noi"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div>                           
+                    </div>
+                </div>
+            </div>
+            <a href="/HaNoi/Architectures/Architectures.html" class="btn">See more</a>
+        </div>
+    </div>
+<!-- tourist destination img -->
+    <div id="about-tour-img">
+        <div class="container">
+            <h1 class="sub-title">Tourist Destination</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/HaNoi/Attractions/Bao tang.jpg" alt="">
+                    <div class="layer">
+                        <h3>Vietnam Military History Museum</h3>
+                        <a href="https://baotanglichsuquansu.vn/vi-vn/"><i class="fa-solid fa-up-right-from-square"></i></a> 
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HaNoi/Attractions/Lang Bac.jpg" alt="">
+                    <div class="layer">
+                        <h3>Ho Chi Minh Mausoleum</h3>
+                        <a href="https://www.bqllang.gov.vn/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HaNoi/Attractions/ho hoan kiem.jpg" alt="">
+                    <div class="layer">
+                        <h3>Hoan Kiem Lake</h3>
+                        <a href="https://www.vntrip.vn/cam-nang/ho-hoan-kiem-10227"><i class="fa-solid fa-up-right-from-square"></i></a>       
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <a href="/HaNoi/Attractions/Attractions.html" class="btn">See more</a>
+        </div>
+    </div>
+
+
+
+<!-- Contact -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact us</h1>
+                    <p><i class="fa-solid fa-envelope"></i>Fetel@gmail.com</p> 
+                    <p><i class="fa-solid fa-phone"></i>012345678   </p>
+                    <p></p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/home"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form action="">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- form pop up-->
+<script>
+    function signupToggle() {
+        var popup = document.querySelector('.sign-up-form');
+        popup.classList.toggle('active');
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+    }
+
+    function loginToggle() {
+        var popup = document.querySelector('.login-form');
+        popup.classList.toggle('active');
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+    }
+
+    function closeForms() {
+    ['.sign-up-form', '.login-form', '.overlay'].forEach(selector => {
+        document.querySelector(selector).classList.remove('active');
+    });
+}
+
+        function closeLogInForm() {
+        document.querySelector('.login-form').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+    }
+
+    function toggleForm(formClass) {
+        var form = document.querySelector(formClass);
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+        form.classList.toggle('active');
+        closeLogInForm();
+        if (form.classList.contains('active')) {
+            overlay.classList.add('active');
+        } else {
+            overlay.classList.remove('active');
+        }
+    }
+</script>
+<!-- about city -->
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname) {
+        // Hide information of tab
+        for(tablink of tablinks) {
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+        }
+        // Hide information of tab
+
+        // Show information
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab")
+    }
+</script>
+</body>
+</html>
