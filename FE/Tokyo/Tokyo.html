@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tokyo</title>
+        <link rel="stylesheet" href="/style.css">
+        <script src="/main.js"></script>
+        <script src="https://kit.fontawesome.com/9e2020f946.js" crossorigin="anonymous"></script>
+
+    </head>
+<body>
+    <!-- navbar header -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="/city.jpg" alt="">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about-resort-img">Resort</a></li>
+            <li><a href="#about-transportation-img">Transportation</a></li>
+            <li><a href="#about-architecture-img">Architecture</a></li>
+            <li><a href="#about-tour-img">Tourist Attraction</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </div>
+        <div class="navbar-right">
+            <div class="search">
+                <input type="text" id="search-input" class="search-input" placeholder="Cities, Services, e.g">
+                <button id="search-btn" class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
+            <div class="join-us" onclick="signupToggle()">Join us</div>
+        </div>
+    </div>
+    <!-- modal pop up -->
+    <div class="overlay" onclick="closeForms()"></div>
+    <div class="sign-up-form">
+        <div class="form">
+            <div class="close" onclick="signupToggle()">&times;</div>
+            <div class="text">
+                <h1>Register Form</h1>
+            </div>
+            <form id="registerForm" action="#">
+                <div class="row-form">
+                    <input id="userName" type="text" placeholder="User Name">
+                    <input id="fullName" type="text" placeholder="Full Name">   
+                </div>
+                <input id="email" type="email" placeholder="Email" autocomplete="username">
+                <input id="password" type="password" placeholder="Password" autocomplete="new-password">
+                <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                <input id="registerSubmit" type="submit" value="Register">
+            </form>       
+        </div>
+    </div>
+
+    <div class="login-form" id="loginFormContainer">
+        <div class="form">
+            <div class="close" onclick="loginToggle()">&times;</div>
+            <div class="text">
+                <h1>Login Form</h1>
+            </div>
+            <form id="loginForm" action="#" onsubmit="handleLogin(event)">
+                <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
+                <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
+                <div class="row-form">
+                    <input id="loginSubmit" type="submit" value="Login">
+                    <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
+                </div>
+                <div class="register-link">
+                    <p>Don't have an account?
+                        <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="forgot-password-modal" id="forgotPasswordModal">
+        <div class="modal-content">
+            <div class="close" onclick="forgotPasswordToggle()">&times;</div>
+            <div class="text">
+                <h1>Forgot Password</h1>
+                <p>Type your new password</p>
+            </div>
+            <form action="#" id="forgotPasswordForm">
+                <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
+                <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="password" required>
+                <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
+                <input id="resetSubmit" type="submit" value="Reset Password">
+            </form>
+        </div>
+    </div>
+<!-- about city -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="/Tokyo/tokyo.jpg" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">Toyko</h1>
+                    <p>                  
+                        Tokyo, the capital of Japan, is a dynamic metropolis blending traditional culture with cutting-edge modernity. 
+                        Known for its iconic landmarks like Tokyo Tower, the historic Senso-ji Temple, and the bustling Shibuya Crossing, the city offers endless attractions for visitors. 
+                        Tokyo is also famous for its world-class cuisine, from sushi and ramen to Michelin-starred dining. 
+                        Despite its fast-paced lifestyle, the city provides peaceful retreats in places like Ueno Park and the Meiji Shrine. 
+                        As a hub of technology, fashion, and entertainment, Tokyo captures the essence of innovation and tradition, making it a must-visit destination.
+                    </p>
+    
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('resorts')">Resorts</p>
+                        <p class="tab-links" onclick="opentab('transportation')">Transportation</p>
+                        <p class="tab-links"onclick="opentab('architecture')">Architecture</p>
+                        <p class="tab-links"onclick="opentab('tour')">Tourist destination</p>
+                    </div>
+                    <!-- resort -->
+                    <div class="tab-contents active-tab" id="resorts">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Hilton Tokyo Narita Airport
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    286-0127, Narita, 456 Kosuge
+                                </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Nikko Narita
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    500 Tokko, Narita-shi, Chiba
+                                </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Aman Tokyo
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    The Otemachi Tower, 1 Chome-5-6, Chiyoda, 100-0004 Tokyo, Nhật Bản
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- transportation -->
+                    <div class="tab-contents" id="transportation">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-plane"></i>
+                                Airway system
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    Tokyo International Airport, commonly known as Haneda Airport, is one of the two main airports serving the Tokyo metropolitan area, and is the primary hub for Japan's two largest domestic airlines.
+                                </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-solid fa-train"></i>
+                                Railway system
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    One of the most efficient, extensive, and punctual in the world, making it the backbone of the city's transportation. 
+                                    It includes a mix of local train lines, subway systems, and high-speed Shinkansen
+                                </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-solid fa-anchor"></i>
+                                Waterway system
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>                          
+                                    Tokyo's waterways offer a unique perspective on the city, blending modern urban landscapes with historical charm. 
+                                    The Sumida River is the heart of Tokyo's water transport system, where sightseeing boats and ferries operate regularly
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- architecture -->
+                    <div class="tab-contents" id="architecture">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                Mode Gaku Cocoon Tower
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Nishi-Shinjuku
+                            </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                Sensoji Pagoda
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Asakusa, Taito-ku
+                            </li>
+                            </li> 
+
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                Tokyo Tower
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Shiba-koen, Minato district
+                            </li>
+                            </li>  
+                        </ul>
+                    </div>
+                    <!-- Tourist destination -->
+                    <div class="tab-contents" id="tour">
+                        <ul>
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Akihabara Street
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Akihabara 
+                            </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Shibuya Street
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Shibuya
+                            </li>
+                            </li>
+
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Tokyo Skytree
+                            </span><br>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Sumida district
+                            </li>
+                            </li>     
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+<!-- resort img -->
+    <div id="about-resort-img">
+        <div class="container">
+            <h1 class="sub-title">Resorts</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/Tokyo/Resorts/hilton.jpg" alt="">
+                    <div class="layer">
+                        <h3>Hilton Tokyo Narita Airport</h3>
+                        <a href="https://www.hilton.com/en/hotels/nrthihi-hilton-tokyo-narita-airport/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Tokyo/Resorts/nikko.jpg" alt="">
+                    <div class="layer">
+                        <h3>Nikko Narita</h3>
+                        <a href="https://www.nikko-narita.com/english/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Tokyo/Resorts/aman.jpg" alt="">
+                    <div class="layer">
+                        <h3>Aman Tokyo</h3>                      
+                        <a href="https://www.aman.com/hotels/aman-tokyo"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                    </div>
+                </div>
+            </div>
+            <a href="/Tokyo/Resorts/Resorts.html" class="btn">See more</a>
+        </div>
+    </div>
+<!-- transportation img -->
+    <div id="about-transportation-img">
+        <div class="container">
+            <h1 class="sub-title">Transportation</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/Tokyo/haneda.jpg" alt="">
+                    <div class="layer">
+                        <h3>Airway system</h3>
+                        <a href="https://tokyo-haneda.com/en/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Tokyo/railway.jpg" alt="">
+                    <div class="layer">
+                        <h3>Railway system</h3>
+                        <a href="https://www.tokyometro.jp/en/subwaymap/index.html"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Tokyo/waterway.jpg" alt="">
+                    <div class="layer">
+                        <h3>Waterway system</h3>
+                        <a href="https://uniquevenues-en.metro.tokyo.lg.jp/venues/metropolitan/12007/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    </div>
+                </div>
+            </div>
+            <a href="https://sogtvt.hanoi.gov.vn/" class="btn">See more</a>
+        </div>
+    </div>
+<!-- architecture img -->
+    <div id="about-architecture-img">
+        <div class="container">
+            <h1 class="sub-title">Architectures</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/Tokyo/Architectures/gaku.jpg" alt="">
+                    <div class="layer">
+                        <h3> Mode Gaku Cocoon Tower</h3>                          
+                        <a href="https://en.wikiarquitectura.com/building/mode-gakuen-cocoon-tower/"><i class="fa-solid fa-up-right-from-square"></i></a> 
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                           
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Tokyo/Architectures/sensoji.jpg" alt="">
+                    <div class="layer">
+                        <h3> Sensoji Pagoda</h3>                           
+                        <a href="https://www.traveloka.com/vi-vn/explore/destination/chua-sensoji/246230"><i class="fa-solid fa-up-right-from-square"></i></a>   
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                         
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Tokyo/Architectures/thap tokyo.jpg" alt="">
+                    <div class="layer">
+                        <h3>Tokyo Tower</h3>                          
+                        <a href="https://www.japan.travel/vi/spot/1709/"><i class="fa-solid fa-up-right-from-square"></i></a>     
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                        
+                    </div>
+                </div>
+            </div>
+            <a href="/Tokyo/Architectures/Architectures.html" class="btn">See more</a>
+        </div>
+    </div>
+<!-- tourist destination img -->
+    <div id="about-tour-img">
+        <div class="container">
+            <h1 class="sub-title">Tourist Destination</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/Tokyo/Attractions/akihabara.jpg" alt="">
+                    <div class="layer">
+                        <h3>Akihabara Street</h3>
+                        <a href="https://www.traveloka.com/vi-vn/explore/destination/du-lich-akihabara-acc/191862"><i class="fa-solid fa-up-right-from-square"></i></a> 
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Tokyo/Attractions/shibuya.jpg" alt="">
+                    <div class="layer">
+                        <h3>Shibuya Street</h3>
+                        <a href="https://www.traveloka.com/vi-vn/explore/destination/du-lich-shibuya-acc/191898"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>   
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Tokyo/Attractions/skytree.jpg" alt="">
+                    <div class="layer">
+                        <h3>Toyko Skytree</h3>
+                        <a href="https://www.tokyo-skytree.jp/en/"><i class="fa-solid fa-up-right-from-square"></i></a>   
+                        <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                            
+                    </div>
+                </div>
+            </div>
+            <a href="/Tokyo/Attractions/Attractions.html" class="btn">See more</a>
+        </div>
+    </div>
+
+
+<!-- Contact -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact us</h1>
+                <p><i class="fa-solid fa-envelope"></i>Fetel@gmail.com</p> 
+                <p><i class="fa-solid fa-phone"></i>012345678   </p>
+                <p></p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/home"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form action="">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- form pop up-->
+<script>
+function signupToggle() {
+    var popup = document.querySelector('.sign-up-form');
+    popup.classList.toggle('active');
+    var overlay = document.querySelector('.overlay');
+    overlay.classList.toggle('active');
+}
+
+function loginToggle() {
+    var popup = document.querySelector('.login-form');
+    popup.classList.toggle('active');
+    var overlay = document.querySelector('.overlay');
+    overlay.classList.toggle('active');
+}
+
+function closeForms() {
+['.sign-up-form', '.login-form', '.overlay'].forEach(selector => {
+    document.querySelector(selector).classList.remove('active');
+});
+}
+
+    function closeLogInForm() {
+    document.querySelector('.login-form').classList.remove('active');
+    document.querySelector('.overlay').classList.remove('active');
+}
+
+function toggleForm(formClass) {
+    var form = document.querySelector(formClass);
+    var overlay = document.querySelector('.overlay');
+    overlay.classList.toggle('active');
+    form.classList.toggle('active');
+    closeLogInForm();
+    if (form.classList.contains('active')) {
+        overlay.classList.add('active');
+    } else {
+        overlay.classList.remove('active');
+    }
+}
+</script>
+<!-- about city -->
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname) {
+        // Hide information of tab
+        for(tablink of tablinks) {
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+        }
+        // Hide information of tab
+
+        // Show information
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab")
+    }
+</script>
+</body>
+</html>
