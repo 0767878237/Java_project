@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Can Tho City</title>
+        <link rel="stylesheet" href="/style.css">
+        <script src="/main.js"></script>
+        <script src="https://kit.fontawesome.com/9e2020f946.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <!-- navbar header -->
+        <div class="navbar">
+            <div class="navbar-left">
+                <img src="/city.jpg" alt="">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about-resort-img">Resort</a></li>
+                <li><a href="#about-transportation-img">Transportation</a></li>
+                <li><a href="#about-architecture-img">Architecture</a></li>
+                <li><a href="#about-tour-img">Attraction</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </div>
+            <div class="navbar-right">
+               <div class="search">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search (e.g., Ho Chi Minh, Da Nang, Ha Noi)">
+                    <button id="search-btn" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
+                <div class="join-us" onclick="signupToggle()">Join us</div>
+                <div class="user">
+                    <img src="https://www.gravatar.com/avatar/edba7a780125c6e32a506ba87245bcd3.jpg?s=80&d=mp&r=g" alt="" class="user-img">
+                    <span class="user-name">Loading...</span>
+
+                    <ul class="user-menu">
+                        <li class="user-items">
+                            <div class="user-setting" onclick="showMyAccount()">My Account</div>
+                        </li>
+                        <li class="user-items">
+                            <div class="user-setting">Help</div>
+                        </li>
+                        <li class="user-items">
+                            <a href="" class="user-setting" id="log-out">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- modal pop up -->
+        <div class="overlay" onclick="closeForms()"></div>
+        <div class="sign-up-form">
+            <div class="form">
+                <div class="close" onclick="signupToggle()">&times;</div>
+                <div class="text">
+                    <h1>Register Form</h1>
+                </div>
+                <form id="registerForm" action="#">
+                    <div class="row-form">
+                        <input id="userName" type="text" placeholder="User Name">
+                        <input id="fullName" type="text" placeholder="Full Name">   
+                    </div>
+                    <input id="email" type="email" placeholder="Email" autocomplete="username">
+                    <input id="password" type="password" placeholder="Password" autocomplete="new-password">
+                    <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                    <input id="registerSubmit" type="submit" value="Register" style="cursor: pointer;">
+                </form>       
+            </div>
+        </div>
+
+        <div class="login-form" id="loginFormContainer">
+            <div class="form">
+                <div class="close" onclick="loginToggle()">&times;</div>
+                <div class="text">
+                    <h1>Login Form</h1>
+                </div>
+                <form id="loginForm" action="#">
+                    <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
+                    <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
+                    <div class="row-form">
+                        <input id="loginSubmit" type="submit" value="Login" style="cursor: pointer;">
+                        <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
+                    </div>
+                    <div class="register-link">
+                        <p>Don't have an account?
+                            <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="my_account">
+            <div class="form">
+                <div class="close" onclick="accountToggle()">&times;</div>
+                <div class="text">
+                    <h1>Account Setting</h1>
+                </div>
+                <form id="accountForm" action="#">
+                    <div class="row-form">
+                        <input id="accountUserName" type="text" placeholder="New User Name">
+                        <input id="accountFullName" type="text" placeholder="New Full Name">   
+                    </div>
+                    <input id="accountEmail" type="email" placeholder="New Email" autocomplete="username">
+                    <input id="accountSubmit" type="submit" value="Change" style="cursor: pointer;">
+                </form>       
+            </div>
+        </div>
+
+        <div class="forgot-password-modal" id="forgotPasswordModal">
+            <div class="modal-content">
+                <div class="close" onclick="forgotPasswordToggle()">&times;</div>
+                <div class="text">
+                    <h1>Forgot Password</h1>
+                    <p>Type your new password</p>
+                </div>
+                <form action="#" id="forgotPasswordForm">
+                    <input id="Name" type="text" placeholder="User Name" autocomplete="username">
+                    <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="current-password" required>
+                    <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
+                    <input id="resetSubmit" type="submit" value="Reset Password">
+                </form>
+            </div>
+        </div>
+        
+<!-- about city -->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="/CT/CanTho.jpg" alt="">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">Can Tho </h1>
+                        <p>
+                            Can Tho is one of six centrally run cities in Vietnam. 
+                            This is the busiest and most developed city in the Mekong Delta, serving as the economic, cultural, social, 
+                            medical, educational and commercial center of the entire region. Can Tho is currently a grade I urban area, 
+                            a central city at the regional and national level.
+                        </p>
+        
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('resort')">Resorts</p>
+                            <p class="tab-links" onclick="opentab('transportation')">Transportation</p>
+                            <p class="tab-links"onclick="opentab('architecture')">Architecture</p>
+                            <p class="tab-links"onclick="opentab('tour')">Tourist Attraction</p>
+                        </div>
+                        <!-- resort" -->
+                        <div class="tab-contents active-tab" id="resort">
+                            <ul>
+                                <li><span>
+                                    <i class="fa-solid fa-hotel"></i>
+                                        Legacy Mekong
+                                </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Con Au, Cai Rang, Can Tho
+                                </li>
+                                </li>
+                                <li><span>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    Victoria Can Tho resort
+                                    </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        Cai Khe Ward, Ninh Kieu District, Can Tho City, Vietnam
+                                    </li>
+                                </li>
+                                <li><span>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    Can Tho eco resort
+                                    </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        Km7+, National Highway 61C, Nhon Thuan, Nhon Nghia, Phong Dien, Can Tho
+                                    </li>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- transportation -->
+                        <div class="tab-contents" id="transportation">
+                            <ul>
+                                <li><span>
+                                    <i class="fa-solid fa-road"></i>
+                                    Airway system
+                                </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Located along Hau Giang River. The airport connects to Can Tho city center by Vo Van Kiet and Le Hong Phong streets
+                                    </li>
+                                </li>
+                                <li><span>
+                                    <i class="fa-solid fa-train"></i>
+                                   Bus system
+                                </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        Can Tho City's public bus transportation system has undergone a dramatic transformation. Can Tho City continues to expand its bus network
+                                        to help people access public passenger transport services more easily and conveniently.
+                                    </li>
+                                </li>
+                                <li><span>
+                                    <i class="fa-solid fa-anchor"></i>
+                                    Waterway system
+                                </span><br>
+                                    <li>
+                                        <i class="fa-solid fa-book"></i>
+                                        As a river city, Can Tho has a very developed waterway and ship transportation system.
+                                        Can Tho will be extremely convenient means for you coming from all over to 
+                                        visit famous places such as tourist islands and Cai Rang floating market
+                                    </li>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--  Architecture -->
+                        <div class="tab-contents" id="architecture">
+                            <ul>
+                                <li><span>
+                                    <i class="fa-solid fa-house"></i>
+                                    Ninh Kieu wharf
+                                </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    106 Hai Ba Trung Street, Tan An, Ninh Kieu, Can Tho
+                                </li>
+
+                                <li><span>
+                                    <i class="fa-solid fa-house"></i>
+                                    Munir Ansay Temple
+                                </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    2QMM+CH7, 36  Hoa Binh street, Tan An, Ninh Kieu, Can Tho
+                                </li>
+                                </li>
+
+                                <li><span>
+                                    <i class="fa-solid fa-house"></i>
+                                    Binh Thuy ancient house
+                                </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    144 Bui Huu Nghia Street, Binh Thuy, Binh Thuy, Can Tho
+                                </li>
+                                </li>     
+                            </ul>
+                        </div>
+                        <!-- tour -->
+                        <div class="tab-contents" id="tour">
+                            <ul>
+                                <li><span>
+                                    <i class="fa-regular fa-star"></i>
+                                  Cai Rang floating market
+                                </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                     Can Tho river, near Cai Rang bridge, about 7 km from Can Tho city center.
+                                </li>
+                                </li>
+
+                                <li><span>
+                                    <i class="fa-regular fa-star"></i>
+                                    Bang Lang stork garden
+                                </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    7GJ4+J66, Thuan An, Thot Not, Can Tho.
+                                </li>
+                                </li> 
+
+                                <li><span>
+                                    <i class="fa-regular fa-star"></i>
+                                    Military Region 9 Museum
+                                </span><br>
+                                <li>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    6 Hoa Binh Street, Tan An, Ninh Kieu, Can Tho
+                                </li>
+                                </li>  
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+<!-- resort img-->
+        <div id="about-resort-img">
+            <div class="container">
+                <h1 class="sub-title">Resort</h1>
+                <div class="service-list">
+                    <div class="service">
+                        <img src="/CT/Resorts/Lececy.jpg" alt="">
+                        <div class="layer">
+                            <h3>Legacy Mekong</h3>
+                            <a href="https://novahotelresortworld.com.vn/legacy-mekong/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/CT/Resorts/victoriacanthoresort4.jpg" alt="">
+                        <div class="layer">
+                            <h3>Victoria Can Tho resort</h3>
+                            <a href="https://www.victoriahotels.asia/en/destination/victoria-can-tho/"><i class="fa-solid fa-up-right-from-square"></i></a> 
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/CT/Resorts/canthoeco.jpg" alt="">
+                        <div class="layer">
+                            <h3>CanTho eco resort</h3>                          
+                            <a href="https://canthoecoresort.com/"><i class="fa-solid fa-up-right-from-square"></i></a> 
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <a href="/CT/Resorts/Resorts.html" class="btn">See more</a>
+            </div>
+        </div>
+<!-- transportation img -->
+        <div id="about-transportation-img">
+            <div class="container">
+                <h1 class="sub-title">Transportation</h1>
+                <div class="service-list">
+                    <div class="service">
+                        <img src="/CT/san-bay-can-tho.jpg" alt="">
+                        <div class="layer">
+                            <h3>Airway system</h3>
+                            <a href=""><i class="fa-solid fa-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/CT/bus-o-can-tho.jpg" alt="">
+                        <div class="layer">
+                            <h3>Bus system</h3>
+                            <a href="https://mia.vn/cam-nang-du-lich/lo-trinh-cac-tuyen-xe-bus-o-can-tho-chi-tiet-nhat-4811"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/CT/water.jpg" alt="">
+                        <div class="layer">
+                            <h3>waterway system</h3>
+                            <a href="https://laodong.vn/xa-hoi/can-tho-se-phat-trien-cac-tuyen-buyt-duong-song-de-phuc-vu-van-tai-du-lich-1357162.ldo"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        </div>
+                    </div>
+                </div>
+                <a href="https://mia.vn/cam-nang-du-lich/tong-hop-cac-phuong-tien-di-lai-o-can-tho-duoc-ua-chuong-nhat-4914" class="btn">See more</a>
+            </div>
+        </div>
+<!-- Architecture img -->
+        <div id="about-architecture-img">
+            <div class="container">
+                <h1 class="sub-title">Architecture</h1>
+                <div class="service-list">
+                    <div class="service">
+                        <img src="/CT/Architectures/benninhkieu.jpg" alt="">
+                        <div class="layer">
+                            <h3>Ninh Kieu wharf</h3>
+                            <a href="https://vinpearl.com/vi/ben-ninh-kieu-can-tho-co-gi-thu-vi-kinh-nghiem-an-choi-sieu-chi-tiet"><i class="fa-solid fa-up-right-from-square"></i></a>   
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                      
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/CT/Architectures/muniransay.jpg" alt="">
+                        <div class="layer">
+                            <h3>Munir Ansay Temple</h3>
+                            <a href="https://canthotourism.vn/en/chuamuniransay"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/CT/Architectures/binh-thuy-ancient-house-can-tho.jpg" alt="">
+                        <div class="layer">
+                            <h3>Binh Thuy ancient house</h3>          
+                            <a href="https://canthotourism.vn/en/nhacobinhthuy"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <a href="/CT/Architectures/Architectures.html" class="btn">See more</a>
+            </div>
+        </div>
+<!-- tour img -->
+        <div id="about-tour-img">
+            <div class="container">
+                <h1 class="sub-title">Tourist Attraction</h1>
+                <div class="service-list">
+                    <div class="service">
+                        <img src="/CT/Attractions/cairang.jpg" alt="">
+                        <div class="layer">
+                            <h3> Cai Rang floating market</h3>                     
+                            <a href="https://vinpearl.com/vi/cho-noi-cai-rang-can-tho-trai-nghiem-doc-dao-tai-mien-tay-song-nuoc"><i class="fa-solid fa-up-right-from-square"></i></a>   
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                     
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/CT/Attractions/bao-tang-quan-khu9.jpg" alt="">
+                        <div class="layer">
+                            <h3>Military Region 9 Museum</h3>                        
+                            <a href="https://canthotourism.vn/vi/detailtravelplace/?id=555"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                           
+                        </div>
+                    </div>
+                    <div class="service">
+                        <img src="/CT/Attractions/Bang-Lang-Stork-Sanctuary.jpg" alt="">
+                        <div class="layer">
+                            <h3>Bang Lang stork garden</h3>                       
+                            <a href="https://vinpearl.com/vi/vuon-co-bang-lang-can-tho-kham-pha-diem-du-lich-chan-phuong-moc-mac"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                            <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>                       
+                        </div>
+                    </div>
+                </div>
+                <a href="/CT/Attractions/Attractions.html" class="btn">See more</a>
+            </div>
+        </div>
+
+
+<!-- Contact -->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact us</h1>
+                        <p><i class="fa-solid fa-envelope"></i>Fetel@gmail.com</p> 
+                        <p><i class="fa-solid fa-phone"></i>012345678   </p>
+                        <p></p>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/home"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-right">
+                        <form action="">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- form pop up-->
+    <script>
+        function signupToggle() {
+            var popup = document.querySelector('.sign-up-form');
+            popup.classList.toggle('active');
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+        }
+
+        function loginToggle() {
+            var popup = document.querySelector('.login-form');
+            popup.classList.toggle('active');
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+        }
+
+        function accountToggle() {
+            var popup = document.querySelector('.my_account');
+            popup.classList.toggle('active');
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+        }
+        function closeForms() {
+        ['.sign-up-form', '.login-form', '.overlay'].forEach(selector => {
+            document.querySelector(selector).classList.remove('active');
+        });
+        }
+
+        function closeLogInForm() {
+            document.querySelector('.login-form').classList.remove('active');
+            document.querySelector('.overlay').classList.remove('active');
+        }
+
+        function toggleForm(formClass) {
+            var form = document.querySelector(formClass);
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+            form.classList.toggle('active');
+            closeLogInForm();
+            if (form.classList.contains('active')) {
+                overlay.classList.add('active');
+            } else {
+                overlay.classList.remove('active');
+            }
+        }
+    </script>
+<!-- about city -->
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname) {
+            // Hide information of tab
+            for(tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            // Hide information of tab
+
+            // Show information
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
+    </body>
+</html>
