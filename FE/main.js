@@ -1,20 +1,25 @@
 // Hiển thị và ẩn form đăng ký/đăng nhập
 function showRegister() {
+    // document.getElementById('registerForm').style.display = 'block';
     document.getElementById('registerForm').classList.add('active');
     showOverlay();
 }
 
 function showLogin() {
+    // document.getElementById('loginForm').style.display = 'block';
     document.getElementById('loginForm').classList.add('active');
     showOverlay();
 }
 
 function showMyAccount() {
     const accountModal = document.querySelector('.my_account');
-    accountModal.classList.toggle('active'); 
+    accountModal.classList.toggle('active');
+    
 }
 
 function closeModal() {
+    // document.getElementById('registerForm').style.display = 'none';
+    // document.getElementById('loginForm').style.display = 'none';
     document.getElementById('registerForm').classList.remove('active');
     document.getElementById('loginForm').classList.remove('active');
     hideOverlay();
@@ -185,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('.sign-in').style.display = 'none';
                 document.querySelector('.join-us').style.display = 'none';
                 document.querySelector('.user').style.display = 'flex';
+                document.querySelector('.user-name').innerHTML = result.username;
             } else {
                 const error = await response.json();
                 alert(`Login failed: ${error.message || 'Unknown error'}`);
@@ -205,3 +211,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 })
 
+// search
+document.addEventListener('DOMContentLoaded', () => {
+    const searchBtn = document.getElementById('search-btn');
+    const searchInput = document.getElementById('search-input');
+
+    const locations = {
+        'ho chi minh': 'http://127.0.0.1:5500/Ho%20Chi%20Minh.html',
+        'da nang': 'http://127.0.0.1:5500/Da%20Nang.html',
+        'ha noi': 'http://127.0.0.1:5500/Ha%20Noi.html'
+    };
+
+    searchBtn.addEventListener('click', () => {
+        const query = searchInput.value.trim().toLowerCase();
+        const url = locations[query];
+
+        if (url) {
+            window.location.href = url;
+        } else {
+            alert('Không tìm thấy địa điểm phù hợp.');
+        }
+    });
+});
