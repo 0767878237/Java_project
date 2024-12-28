@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resorts</title>
+        <link rel="stylesheet" href="/style.css">
+        <script src="/main.js"></script>
+        <script src="https://kit.fontawesome.com/9e2020f946.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- navbar header -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="/city.jpg" alt="">
+            <li><a href="/HoChiMinh/Ho Chi Minh.html">Home</a></li>
+            <li><a href="#">Resort</a></li>
+            <li><a href="/HoChiMinh/architectures/Achitectures.html">Architecture</a></li>
+            <li><a href="/HoChiMinh/Attractions/Attractions.html">Attraction</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </div>
+        <div class="navbar-right">
+            <div class="search">
+                <input type="text" id="search-input" class="search-input" placeholder="Search (e.g., Ho Chi Minh, Da Nang, Ha Noi)">
+                <button id="search-btn" class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
+            <div class="join-us" onclick="signupToggle()">Join us</div>
+            <div class="user">
+                <img src="https://www.gravatar.com/avatar/edba7a780125c6e32a506ba87245bcd3.jpg?s=80&d=mp&r=g" alt="" class="user-img">
+                <span class="user-name">Loading...</span>
+
+                <ul class="user-menu">
+                    <li class="user-items">
+                        <div class="user-setting" onclick="showMyAccount()">My Account</div>
+                    </li>
+                    <li class="user-items">
+                        <div class="user-setting">Help</div>
+                    </li>
+                    <li class="user-items">
+                        <a href="" class="user-setting" id="log-out">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- modal pop up -->
+    <div class="overlay" onclick="closeForms()"></div>
+    <div class="sign-up-form">
+        <div class="form">
+            <div class="close" onclick="signupToggle()">&times;</div>
+            <div class="text">
+                <h1>Register Form</h1>
+            </div>
+            <form id="registerForm" action="#">
+                <div class="row-form">
+                    <input id="userName" type="text" placeholder="User Name">
+                    <input id="fullName" type="text" placeholder="Full Name">   
+                </div>
+                <input id="email" type="email" placeholder="Email" autocomplete="username">
+                <input id="password" type="password" placeholder="Password" autocomplete="new-password">
+                <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                <input id="registerSubmit" type="submit" value="Register" style="cursor: pointer;">
+            </form>       
+        </div>
+    </div>
+
+    <div class="login-form" id="loginFormContainer">
+        <div class="form">
+            <div class="close" onclick="loginToggle()">&times;</div>
+            <div class="text">
+                <h1>Login Form</h1>
+            </div>
+            <form id="loginForm" action="#">
+                <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
+                <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
+                <div class="row-form">
+                    <input id="loginSubmit" type="submit" value="Login" style="cursor: pointer;">
+                    <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
+                </div>
+                <div class="register-link">
+                    <p>Don't have an account?
+                        <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="my_account">
+        <div class="form">
+            <div class="close" onclick="accountToggle()">&times;</div>
+            <div class="text">
+                <h1>Account Setting</h1>
+            </div>
+            <form id="accountForm" action="#">
+                <div class="row-form">
+                    <input id="accountUserName" type="text" placeholder="New User Name" required>
+                    <input id="accountFullName" type="text" placeholder="New Full Name" required>   
+                </div>
+                <input id="accountEmail" type="email" placeholder="New Email" autocomplete="username" required>
+                <input id="accountSubmit" type="submit" value="Change" style="cursor: pointer;">
+            </form>       
+        </div>
+    </div>
+
+    <div class="forgot-password-modal" id="forgotPasswordModal">
+        <div class="modal-content">
+            <div class="close" onclick="forgotPasswordToggle()">&times;</div>
+            <div class="text">
+                <h1>Forgot Password</h1>
+                <p>Type your new password</p>
+            </div>
+            <form action="#" id="forgotPasswordForm">
+                <input id="Name" type="text" placeholder="User Name" autocomplete="username">
+                <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="current-password" required>
+                <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
+                <input id="resetSubmit" type="submit" value="Reset Password">
+            </form>
+        </div>
+    </div>
+
+<!-- resort img-->
+<div id="about-resort-img">
+    <div class="container">
+        <h1 class="sub-title">Resort</h1>
+        <div class="service-list">
+            <div class="service">
+                <img src="/HoChiMinh/resorts/villa.jpg" alt="">
+                <div class="layer">
+                    <h3>Villa Sông</h3>
+                    <a href="https://villasong.com/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                </div>
+            </div>
+            <div class="service">
+                <img src="/HoChiMinh/resorts/thao dien.jpg" alt="">
+                <div class="layer">
+                    <h3>Thao Dien Boutique Hotel</h3>
+                    <a href="https://thao-dien-boutique.hotelshochiminhcity.net/vi/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                </div>
+            </div>
+            <div class="service">
+                <img src="/HoChiMinh/resorts/chloe.jpg" alt="">
+                <div class="layer">
+                    <h3>Chloe Gallery</h3>
+                    <a href="https://www.agoda.com/vi-vn/chloe-gallery/hotel/ho-chi-minh-city-vn.html"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="service-list">
+            <div class="service">
+                <img src="/HoChiMinh/resorts/muong thanh.jpg" alt="">
+                <div class="layer">
+                    <h3>Muong Thanh Luxury Saigon Hotel</h3>
+                    <a href="https://luxurysaigon.muongthanh.com/?fbclid=IwZXh0bgNhZW0CMTAAAR225rvIRc9tb2dO7htTlf8LQcvZ6xPD7hMv9E6PZc5A1tQyEfQnHma6mDw_aem_7w4g95iVILftEfdKqwmGpA"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                </div>
+            </div>
+            <div class="service">
+                <img src="/HoChiMinh/resorts/sedona.jpg" alt="">
+                <div class="layer">
+                    <h3>Sedona Suites Ho Chi Minh City</h3>
+                    <a href="https://www.sedonavietnam.com/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                </div>
+            </div>
+            <div class="service">
+                <img src="/HoChiMinh/resorts/prague.jpg" alt="">
+                <div class="layer">
+                    <h3>Prague Airport Hotel</h3>
+                    <a href="https://pragueairporthotelvn.com/"><i class="fa-solid fa-up-right-from-square"></i></a> 
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div>  
+                </div>
+            </div>
+        </div>
+
+        <div class="service-list">
+            <div class="service">
+                <img src="/HoChiMinh/resorts/silverland.jpg" alt="">
+                <div class="layer">
+                    <h3>Silverland Central</h3>
+                    <a href="https://www.silverlandhotels.com/vi/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                </div>
+            </div>
+            <div class="service">
+                <img src="/HoChiMinh/resorts/icon.jpg" alt="">
+                <div class="layer">
+                    <h3>Icon Saigon - LifeStyle Hotel</h3>
+                    <a href="https://iconsaigonhotel.com/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                </div>
+            </div>
+            <div class="service">
+                <img src="/HoChiMinh/resorts/rex.jpg" alt="">
+                <div class="layer">
+                    <h3>Rex Hotel</h3>
+                    <a href="https://www.rexhotelsaigon.com/vi//"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    <div id="rating-container">
+                                <label for="rating">Đánh giá của bạn:</label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5_4" name="rating" value="5" />
+                                    <label for="star5_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star4_4" name="rating" value="4" />
+                                    <label for="star4_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star3_4" name="rating" value="3" />
+                                    <label for="star3_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star2_4" name="rating" value="2" />
+                                    <label for="star2_4" class="star">&#9733;</label>
+                            
+                                    <input type="radio" id="star1_4" name="rating" value="1" />
+                                    <label for="star1_4" class="star">&#9733;</label>
+    
+                                </div>
+                                <button class="submit-rating">Gửi Đánh Giá</button>
+                            </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Contact -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact us</h1>
+                    <p><i class="fa-solid fa-envelope"></i>Fetel@gmail.com</p> 
+                    <p><i class="fa-solid fa-phone"></i>012345678   </p>
+                    <p></p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/home"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form action="" name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- form pop up-->
+<script>
+    function signupToggle() {
+        var popup = document.querySelector('.sign-up-form');
+        popup.classList.toggle('active');
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+    }
+
+    function loginToggle() {
+        var popup = document.querySelector('.login-form');
+        popup.classList.toggle('active');
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+    }
+
+    function accountToggle() {
+        var popup = document.querySelector('.my_account');
+        popup.classList.toggle('active');
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+    }
+    function closeForms() {
+    ['.sign-up-form', '.login-form', '.overlay'].forEach(selector => {
+        document.querySelector(selector).classList.remove('active');
+    });
+    }
+
+    function closeLogInForm() {
+        document.querySelector('.login-form').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+    }
+
+    function toggleForm(formClass) {
+        var form = document.querySelector(formClass);
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+        form.classList.toggle('active');
+        closeLogInForm();
+        if (form.classList.contains('active')) {
+            overlay.classList.add('active');
+        } else {
+            overlay.classList.remove('active');
+        }
+    }
+</script>
+</body>
+</html>

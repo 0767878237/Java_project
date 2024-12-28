@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ho Chi Minh City</title>
+        <link rel="stylesheet" href="/style.css">
+        <script src="/main.js"></script>
+        <script src="https://kit.fontawesome.com/9e2020f946.js" crossorigin="anonymous"></script>
+
+    </head>
+<body>
+    <!-- navbar header -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="/city.jpg" alt="">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about-resort-img">Resort</a></li>
+            <li><a href="#about-transportation-img">Transportation</a></li>
+            <li><a href="#about-architecture-img">Architecture</a></li>
+            <li><a href="#about-tour-img">Attraction</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </div>
+        <div class="navbar-right">
+            <div class="search">
+                <input type="text" id="search-input" class="search-input" placeholder="Cities, Services, e.g">
+                <button id="search-btn" class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
+            <div class="join-us" onclick="signupToggle()">Join us</div>
+            <div class="user">
+                <img src="https://www.gravatar.com/avatar/edba7a780125c6e32a506ba87245bcd3.jpg?s=80&d=mp&r=g" alt="" class="user-img">
+                <span class="user-name">Loading...</span>
+
+                <ul class="user-menu">
+                    <li class="user-items">
+                        <div class="user-setting" onclick="showMyAccount()">My Account</div>
+                    </li>
+                    <li class="user-items">
+                        <div class="user-setting">Help</div>
+                    </li>
+                    <li class="user-items">
+                        <a href="" class="user-setting" id="log-out">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- modal pop up -->
+    <div class="overlay" onclick="closeForms()"></div>
+    <div class="sign-up-form">
+        <div class="form">
+            <div class="close" onclick="signupToggle()">&times;</div>
+            <div class="text">
+                <h1>Register Form</h1>
+            </div>
+            <form id="registerForm" action="#">
+                <div class="row-form">
+                    <input id="userName" type="text" placeholder="User Name">
+                    <input id="fullName" type="text" placeholder="Full Name">   
+                </div>
+                <input id="email" type="email" placeholder="Email" autocomplete="username">
+                <input id="password" type="password" placeholder="Password" autocomplete="new-password">
+                <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                <input id="registerSubmit" type="submit" value="Register" style="cursor: pointer;">
+            </form>       
+        </div>
+    </div>
+
+    <div class="login-form" id="loginFormContainer">
+        <div class="form">
+            <div class="close" onclick="loginToggle()">&times;</div>
+            <div class="text">
+                <h1>Login Form</h1>
+            </div>
+            <form id="loginForm" action="#">
+                <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
+                <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
+                <div class="row-form">
+                    <input id="loginSubmit" type="submit" value="Login" style="cursor: pointer;">
+                    <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
+                </div>
+                <div class="register-link">
+                    <p>Don't have an account?
+                        <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="my_account">
+        <div class="form">
+            <div class="close" onclick="accountToggle()">&times;</div>
+            <div class="text">
+                <h1>Account Setting</h1>
+            </div>
+            <form id="accountForm" action="#">
+                <div class="row-form">
+                    <input id="accountUserName" type="text" placeholder="New User Name" required>
+                    <input id="accountFullName" type="text" placeholder="New Full Name" required>   
+                </div>
+                <input id="accountEmail" type="email" placeholder="New Email" autocomplete="username" required>
+                <input id="accountSubmit" type="submit" value="Change" style="cursor: pointer;">
+            </form>       
+        </div>
+    </div>
+
+    <div class="forgot-password-modal" id="forgotPasswordModal">
+        <div class="modal-content">
+            <div class="close" onclick="forgotPasswordToggle()">&times;</div>
+            <div class="text">
+                <h1>Forgot Password</h1>
+                <p>Type your new password</p>
+            </div>
+            <form action="#" id="forgotPasswordForm">
+                <input id="Name" type="text" placeholder="User Name" autocomplete="username">
+                <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="current-password" required>
+                <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
+                <input id="resetSubmit" type="submit" value="Reset Password">
+            </form>
+        </div>
+    </div>
+    
+<!-- about city -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="/HoChiMinh/tphcm.jpg" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">Ho Chi Minh</h1>
+                    <p>
+                        Ho Chi Minh City is the largest city in
+                        Vietnam by population and serves as a center for economy and entertainment,
+                        as well as one of the two important cultural and educational centers in the country.
+                        It is a centrally governed city classified as a special urban area in Vietnam.
+                        This city currently has 16 districts, 1 city, and 5 rural areas, with a total area of 2,095 km².
+                    </p>
+    
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('resort')">Resorts</p>
+                        <p class="tab-links" onclick="opentab('transportation')">Transportation</p>
+                        <p class="tab-links"onclick="opentab('architecture')">Architecture</p>
+                        <p class="tab-links"onclick="opentab('tour')">Tourist Attraction</p>
+                    </div>
+                    <!-- resort" -->
+                    <div class="tab-contents active-tab" id="resort">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Villa Sông
+                            </span><br>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Thao Dien, District 2
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Thao Dien Boutique Hotel
+                                </span><br>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    197/1 Nguyen Van Huong, Thao Dien, District 2
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-hotel"></i>
+                                Chloe Gallery
+                                </span><br>
+                                <i class="fa-solid fa-location-dot"></i>
+                                06 Phan Van Chuong, Tan Phu, District 7  
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- transportation -->
+                    <div class="tab-contents" id="transportation">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-road"></i>
+                                Airway system
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    Tan Son Nhat International Airport is the largest international airport in Vietnam. 
+                                    Tan Son Nhat International Airport with an area of 850 hectares is the largest airport in Vietnam in terms of area and terminal capacity.
+                                </li>
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-train"></i>
+                                Ho Chi Minh City Urban Railway
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    The project is a combination of metro, tramway and monorail.
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    The system consists of 8 lines with a total length of 169 km, 1 tram line of 12.8 km and
+                                    2 monorail lines of 43.7 km long. There are 175 stations with a total system length of 225.5 km.
+                                </li>
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-anchor"></i>
+                                Waterway system
+                            </span><br>
+                                <li>
+                                    <i class="fa-solid fa-book"></i>
+                                    Waterway tourism becomes one of the types of tourism, tourism products that create a difference for the City, contributing to diversifying the City's tourism products. 
+                                    Strive for the total number of waterway transport vehicles serving tourists by 2025 to reach 200 canoes, 100 ships, boats and yachts of all kinds.
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--  Architecture -->
+                    <div class="tab-contents" id="architecture">
+                        <ul>
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                Landmark 81
+                            </span><br>
+                                <i class="fa-solid fa-location-dot"></i>
+                                720A Dien Bien Phu, Ward 22 
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                Bitexco Financial Tower
+                            </span><br>
+                                <i class="fa-solid fa-location-dot"></i>
+                                2 Hai Trieu, Ben Nghe Ward, District 1        
+                            </li>
+                            <li><span>
+                                <i class="fa-solid fa-house"></i>
+                                Empire City Tower
+                            </span><br>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Empire City Urban Area, Thu Thiem, District 2            
+                            </li>     
+                        </ul>
+                    </div>
+                    <!-- tour -->
+                    <div class="tab-contents" id="tour">
+                        <ul>
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Ben Thanh Market
+                            </span><br>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Le Loi Street, Ben Thanh Ward, District 1
+                            </li>
+
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Independence Palace
+                            </span><br>
+                                <i class="fa-solid fa-location-dot"></i>
+                                135 Nam Ky Khoi Nghia, Ben Thanh Ward, District 1
+                            </li> 
+
+                            <li><span>
+                                <i class="fa-regular fa-star"></i>
+                                Immaculate Conception Cathedral Basilica
+                            </span><br>
+                                <i class="fa-solid fa-location-dot"></i>
+                                1, Paris Commune, District 1   
+                            </li>  
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+<!-- resort img-->
+    <div id="about-resort-img">
+        <div class="container">
+            <h1 class="sub-title">Resorts</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/HoChiMinh/resorts/villa.jpg" alt="">
+                    <div class="layer">
+                        <h3>Villa Sông</h3>
+                        <a href="https://villasong.com/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HoChiMinh/resorts/thao dien.jpg" alt="">
+                    <div class="layer">
+                        <h3>Thao Dien Boutique Hotel</h3>
+                        <a href="https://thao-dien-boutique.hotelshochiminhcity.net/vi/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HoChiMinh/resorts/chloe.jpg" alt="">
+                    <div class="layer">
+                        <h3>Chloe Gallery</h3>
+                        <a href="https://www.agoda.com/vi-vn/chloe-gallery/hotel/ho-chi-minh-city-vn.html"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <a href="/HoChiMinh/resorts/Resorts.html" class="btn">See more</a>
+        </div>
+    </div>
+<!-- transportation img -->
+    <div id="about-transportation-img">
+        <div class="container">
+            <h1 class="sub-title">Transportation</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/HoChiMinh/airway.jpg" alt="">
+                    <div class="layer">
+                        <h3>Airway system</h3>
+                        <a href="https://www.vietnamairport.vn/tansonnhatairport/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HoChiMinh/rail way.jpg" alt="">
+                    <div class="layer">
+                        <h3>Railway system</h3>
+                        <a href="http://saigonrailway.com.vn/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HoChiMinh/water.jpg" alt="">
+                    <div class="layer">
+                        <h3>Waterway system</h3>
+                        <a href="https://tausaigon.com.vn/du-lich-duong-thuy-tai-thanh-pho-ho-chi-minh"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                    </div>
+                </div>
+            </div>
+            <a href="http://www.giaothong.hochiminhcity.gov.vn/" class="btn">See more</a>
+        </div>
+    </div>
+<!-- Architecture img -->
+    <div id="about-architecture-img">
+        <div class="container">
+            <h1 class="sub-title">Architectures</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/HoChiMinh/architectures/landmark.jpg" alt="">
+                    <div class="layer">
+                        <h3>Landmark 81</h3>
+                        <a href="https://vinhomecentralpark.com/landmark-81-co-gi/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HoChiMinh/architectures/bitexco.jpg" alt="">
+                    <div class="layer">
+                        <h3>Bitexco Financial Tower</h3>
+                        <a href="http://www.bitexcofinancialtower.com/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HoChiMinh/architectures/Empire city.jpg" alt="">
+                    <div class="layer">
+                        <h3>Empire City Tower</h3>
+                        <a href="https://empirecityvn.com/empire-city-88-tower/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <a href="/HoChiMinh/architectures/Achitectures.html" class="btn">See more</a>
+        </div>
+    </div>
+<!-- tour img -->
+    <div id="about-tour-img">
+        <div class="container">
+            <h1 class="sub-title">Tourist Attractions</h1>
+            <div class="service-list">
+                <div class="service">
+                    <img src="/HoChiMinh/Attractions/suoi tien.jpg" alt="">
+                    <div class="layer">
+                        <h3>Suoi Tien Water Park</h3>
+                        <a href="https://suoitien.com/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HoChiMinh/Attractions/dam sen.jpg" alt="">
+                    <div class="layer">
+                        <h3>Dam Sen Water Park</h3>
+                        <a href="http://damsenpark.vn/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/HoChiMinh/Attractions/snow town.jpg" alt="">
+                    <div class="layer">
+                        <h3>Snow Town Sai Gon</h3>
+                        <a href="https://snowtownsaigon.com/"><i class="fa-solid fa-up-right-from-square"></i></a>  
+                        <div id="rating-container">
+                            <label for="rating">Đánh giá của bạn:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Gửi Đánh Giá</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <a href="/HoChiMinh/Attractions/Attractions.html" class="btn">See more</a>
+        </div>
+    </div>
+
+<!-- Contact -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact us</h1>
+                    <p><i class="fa-solid fa-envelope"></i>Fetel@gmail.com</p> 
+                    <p><i class="fa-solid fa-phone"></i>012345678   </p>
+                    <p></p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/home"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form action="">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- form pop up-->
+<script>
+    function signupToggle() {
+        var popup = document.querySelector('.sign-up-form');
+        popup.classList.toggle('active');
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+    }
+
+    function loginToggle() {
+        var popup = document.querySelector('.login-form');
+        popup.classList.toggle('active');
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+    }
+
+    function accountToggle() {
+        var popup = document.querySelector('.my_account');
+        popup.classList.toggle('active');
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+    }
+    function closeForms() {
+    ['.sign-up-form', '.login-form', '.overlay'].forEach(selector => {
+        document.querySelector(selector).classList.remove('active');
+    });
+    }
+
+    function closeLogInForm() {
+        document.querySelector('.login-form').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+    }
+
+    function toggleForm(formClass) {
+        var form = document.querySelector(formClass);
+        var overlay = document.querySelector('.overlay');
+        overlay.classList.toggle('active');
+        form.classList.toggle('active');
+        closeLogInForm();
+        if (form.classList.contains('active')) {
+            overlay.classList.add('active');
+        } else {
+            overlay.classList.remove('active');
+        }
+    }
+</script>
+<!-- about city -->
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname) {
+        // Hide information of tab
+        for(tablink of tablinks) {
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+        }
+        // Hide information of tab
+
+        // Show information
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab")
+    }
+</script>
+
+
+</body>
+</html>
