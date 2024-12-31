@@ -28,8 +28,7 @@
             </div>
             <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
             <div class="join-us" onclick="signupToggle()">Join us</div>
-        </div>
-        <div class="user">
+            <div class="user">
             <img src="https://www.gravatar.com/avatar/edba7a780125c6e32a506ba87245bcd3.jpg?s=80&d=mp&r=g" alt="" class="user-img">
             <span class="user-name">Loading...</span>
 
@@ -38,12 +37,10 @@
                     <div class="user-setting" onclick="showMyAccount()">My Account</div>
                 </li>
                 <li class="user-items">
-                    <div class="user-setting">Help</div>
-                </li>
-                <li class="user-items">
                     <a href="" class="user-setting" id="log-out">Log out</a>
                 </li>
             </ul>
+        </div>
         </div>
     </div>
 <!-- modal pop up -->
@@ -103,22 +100,6 @@
             <input id="accountEmail" type="email" placeholder="New Email" autocomplete="username">
             <input id="accountSubmit" type="submit" value="Change" style="cursor: pointer;">
         </form>       
-    </div>
-</div>
-
-<div class="forgot-password-modal" id="forgotPasswordModal">
-    <div class="modal-content">
-        <div class="close" onclick="forgotPasswordToggle()">&times;</div>
-        <div class="text">
-            <h1>Forgot Password</h1>
-            <p>Type your new password</p>
-        </div>
-        <form action="#" id="forgotPasswordForm">
-            <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
-            <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="password" required>
-            <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
-            <input id="resetSubmit" type="submit" value="Reset Password">
-        </form>
     </div>
 </div>
 
