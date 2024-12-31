@@ -37,9 +37,6 @@
                         <div class="user-setting" onclick="showMyAccount()">My Account</div>
                     </li>
                     <li class="user-items">
-                        <div class="user-setting">Help</div>
-                    </li>
-                    <li class="user-items">
                         <a href="" class="user-setting" id="log-out">Log out</a>
                     </li>
                 </ul>
@@ -76,10 +73,7 @@
             <form id="loginForm" action="#">
                 <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
                 <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
-                <div class="row-form">
-                    <input id="loginSubmit" type="submit" value="Login" style="cursor: pointer;">
-                    <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
-                </div>
+                <input id="loginSubmit" type="submit" value="Login" style="cursor: pointer;">
                 <div class="register-link">
                     <p>Don't have an account?
                         <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
@@ -103,22 +97,6 @@
                 <input id="accountEmail" type="email" placeholder="New Email" autocomplete="username" required>
                 <input id="accountSubmit" type="submit" value="Change" style="cursor: pointer;">
             </form>       
-        </div>
-    </div>
-
-    <div class="forgot-password-modal" id="forgotPasswordModal">
-        <div class="modal-content">
-            <div class="close" onclick="forgotPasswordToggle()">&times;</div>
-            <div class="text">
-                <h1>Forgot Password</h1>
-                <p>Type your new password</p>
-            </div>
-            <form action="#" id="forgotPasswordForm">
-                <input id="Name" type="text" placeholder="User Name" autocomplete="username">
-                <input id="currentPassword" type="password" placeholder="Current Password" autocomplete="current-password" required>
-                <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" required>
-                <input id="resetSubmit" type="submit" value="Reset Password">
-            </form>
         </div>
     </div>
 
