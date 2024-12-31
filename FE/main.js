@@ -14,7 +14,9 @@ function showLogin() {
 function showMyAccount() {
     const accountModal = document.querySelector('.my_account');
     accountModal.classList.toggle('active');
-    
+    if (accountModal.classList.contains('active')) {
+        fetchAndDisplayAccountData();
+    }
 }
 
 function closeModal() {
@@ -199,25 +201,78 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 })
 
-// search
-document.addEventListener('DOMContentLoaded', () => {
-    const searchBtn = document.getElementById('search-btn');
-    const searchInput = document.getElementById('search-input');
+// get user details
+async function fetchAndDisplayAccountData() {
+    try {
+        const token = localStorage.getItem('authToken'); // Hoặc sessionStorage.getItem('authToken');
 
-    const locations = {
-        'ho chi minh': 'http://127.0.0.1:5500/Ho%20Chi%20Minh.html',
-        'da nang': 'http://127.0.0.1:5500/Da%20Nang.html',
-        'ha noi': 'http://127.0.0.1:5500/Ha%20Noi.html'
-    };
+        if (!token) {
+            alert('You are not authenticated. Please log in.');
+            return;
+        }
+        // Gọi API lấy thông tin tài khoản
+        const response = await fetch('http://localhost:8080/api/account', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
 
-    searchBtn.addEventListener('click', () => {
-        const query = searchInput.value.trim().toLowerCase();
-        const url = locations[query];
+        if (response.ok) {
+            const accountData = await response.json();
 
-        if (url) {
-            window.location.href = url;
+            document.getElementById('accountUserName').value = accountData.username || '';
+            document.getElementById('accountRole').value = accountData.role || '';
         } else {
-            alert('Không tìm thấy địa điểm phù hợp.');
+            console.error('Failed to fetch account data:', response.status, response.statusText);
+        }
+    } catch (error) {
+        console.error('Error fetching account data:', error);
+    }
+}
+
+// edit user details
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('accountForm').addEventListener('submit', async (event) => {
+        event.preventDefault(); // Ngăn form submit mặc định
+    
+        const token = localStorage.getItem('authToken'); // Lấy token từ localStorage
+        const fullName = document.getElementById('accountFullName').value;
+        const email = document.getElementById('accountEmail').value;
+    
+        if (!token) {
+            alert('You are not authenticated. Please log in.');
+            return;
+        }
+    
+        try {
+            const response = await fetch('http://localhost:8080/api/account', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    fullName: fullName,
+                    email: email
+                })
+            });
+    
+            if (response.ok) {
+                const result = await response.json();
+                alert('Account updated successfully!');
+                // Cập nhật lại giao diện nếu cần
+                document.getElementById('accountFullName').value = result.fullName;
+                document.getElementById('accountEmail').value = result.email;
+                showMyAccount();
+            } else {
+                const error = await response.json();
+                alert(`Update failed: ${error.message || 'Unknown error'}`);
+            }
+        } catch (error) {
+            console.error('Error updating account:', error);
+            alert('An error occurred while updating your account.');
         }
     });
-});
+})
