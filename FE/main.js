@@ -175,6 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
             if (response.ok) {  
                 const result = await response.json();
+
+                if (result.token) {
+                    localStorage.setItem('authToken', result.token); 
+                } else {
+                    console.error('No token found in response');
+                }
+            
                 alert('Login successful!');
                 closeLoginForm(); // Close the modal
                 document.querySelector('.sign-in').style.display = 'none';
