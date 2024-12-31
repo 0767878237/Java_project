@@ -64,18 +64,6 @@ function searchCity() {
     document.getElementById('cityResults').innerHTML = `Tìm kiếm kết quả cho: ${searchValue}`;
 }
 
-// forgot pass
-function forgotPasswordToggle(event) {
-    if (event) event.preventDefault();
-    const modal = document.getElementById("forgotPasswordModal");
-    if (modal.style.display === "flex") {
-        modal.style.display = "none"; // Ẩn modal
-    } else {
-        modal.style.display = "flex"; // Hiển thị modal
-    }
-}
-
-
 // Hiển thị dịch vụ
 function showService() {
     document.getElementById('serviceList').innerHTML = `
