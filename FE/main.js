@@ -283,3 +283,58 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 })
+
+// search cities
+document.addEventListener('DOMContentLoaded', () => {
+    
+    document.getElementById('search-btn').addEventListener('click', function() {
+        const searchInput = document.getElementById('search-input').value;
+ 
+        if (searchInput.trim() !== "") {
+            console.log('Search input:', searchInput);
+    
+            searchCity(searchInput);
+        } else {
+            alert("Please enter a city name or service.");
+        }
+    });
+})
+
+async function searchCity(cityName) {
+    try {
+        const url = `http://localhost:8080/api/cities/search?name=${encodeURIComponent(cityName)}`;
+
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        const data = await response.json();
+        console.log('API Response:', data);
+
+        if (data.length > 0) {
+            const cityNameFromApi = data[0].name;  
+
+            const formattedCityName = cityNameFromApi.replace(/\s+/g, ''); 
+
+            const encodedCityNameForFile = encodeURIComponent(cityNameFromApi);
+
+            const cityUrl = `http://127.0.0.1:5500/${formattedCityName}/${encodedCityNameForFile}.html`;
+
+            window.location.href = cityUrl;
+        } else {
+            alert("No city found.");
+        }
+        
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while searching for the city.");
+    }
+}
+
