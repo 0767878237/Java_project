@@ -28,7 +28,8 @@
             </div>
             <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
             <div class="join-us" onclick="signupToggle()">Join us</div>
-            <div class="user">
+        </div>
+        <div class="user">
             <img src="https://www.gravatar.com/avatar/edba7a780125c6e32a506ba87245bcd3.jpg?s=80&d=mp&r=g" alt="" class="user-img">
             <span class="user-name">Loading...</span>
 
@@ -37,10 +38,12 @@
                     <div class="user-setting" onclick="showMyAccount()">My Account</div>
                 </li>
                 <li class="user-items">
+                    <div class="user-setting">Help</div>
+                </li>
+                <li class="user-items">
                     <a href="" class="user-setting" id="log-out">Log out</a>
                 </li>
             </ul>
-        </div>
         </div>
     </div>
 <!-- modal pop up -->
@@ -73,10 +76,7 @@
         <form id="loginForm" action="#" onsubmit="handleLogin(event)">
             <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
             <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
-            <div class="row-form">
-                <input id="loginSubmit" type="submit" value="Login">
-                <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
-            </div>
+            <input id="loginSubmit" type="submit" value="Login">
             <div class="register-link">
                 <p>Don't have an account?
                     <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
@@ -119,8 +119,8 @@
                         </span>
                     </h3>                          
                     <a href="https://en.wikiarquitectura.com/building/mode-gakuen-cocoon-tower/"><i class="fa-solid fa-up-right-from-square"></i></a> 
-                    <div id="rating-container">
-                            <label for="rating">Đánh giá của bạn:</label>
+                   <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
                             <div class="star-rating">
                                 <input type="radio" id="star5_4" name="rating" value="5" />
                                 <label for="star5_4" class="star">&#9733;</label>
@@ -138,8 +138,8 @@
                                 <label for="star1_4" class="star">&#9733;</label>
 
                             </div>
-                            <button class="submit-rating">Gửi Đánh Giá</button>
-                        </div>                           
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                         
                 </div>
             </div>
             <div class="service">
@@ -153,8 +153,8 @@
                         </span>
                     </h3>                           
                     <a href="https://www.traveloka.com/vi-vn/explore/destination/chua-sensoji/246230"><i class="fa-solid fa-up-right-from-square"></i></a>   
-                    <div id="rating-container">
-                            <label for="rating">Đánh giá của bạn:</label>
+                   <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
                             <div class="star-rating">
                                 <input type="radio" id="star5_4" name="rating" value="5" />
                                 <label for="star5_4" class="star">&#9733;</label>
@@ -172,8 +172,8 @@
                                 <label for="star1_4" class="star">&#9733;</label>
 
                             </div>
-                            <button class="submit-rating">Gửi Đánh Giá</button>
-                        </div>                         
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                       
                 </div>
             </div>
             <div class="service">
@@ -187,8 +187,8 @@
                         </span>
                     </h3>                          
                     <a href="https://www.japan.travel/vi/spot/1709/"><i class="fa-solid fa-up-right-from-square"></i></a>     
-                    <div id="rating-container">
-                            <label for="rating">Đánh giá của bạn:</label>
+                   <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
                             <div class="star-rating">
                                 <input type="radio" id="star5_4" name="rating" value="5" />
                                 <label for="star5_4" class="star">&#9733;</label>
@@ -206,8 +206,8 @@
                                 <label for="star1_4" class="star">&#9733;</label>
 
                             </div>
-                            <button class="submit-rating">Gửi Đánh Giá</button>
-                        </div>                        
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                      
                 </div>
             </div>
         </div>
@@ -225,26 +225,26 @@
                     </h3>                          
                     <a href="https://tokyo.com/guide/see-do/reiyukai-shakaden-temple/"><i class="fa-solid fa-up-right-from-square"></i></a>  
                     <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                          
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                     
                 </div>
             </div>
             <div class="service">
@@ -259,26 +259,26 @@
                     </h3>                           
                     <a href="https://gachxay.net/kien-truc-doc-dao-va-dam-da-ban-sac-van-hoa-cua-san-van-dong-quoc-gia-nhat-ban/"><i class="fa-solid fa-up-right-from-square"></i></a>  
                     <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                          
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                     
                 </div>
             </div>
             <div class="service">
@@ -293,26 +293,26 @@
                     </h3>                          
                     <a href="https://archello.com/project/sunwell-muse-kitasando"><i class="fa-solid fa-up-right-from-square"></i></a> 
                     <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                            
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                       
                 </div>
             </div>
         </div>
@@ -330,26 +330,26 @@
                     </h3>                          
                     <a href="https://blogkientruc.net/kenzo-tange-nha-tho-st-marys-cathedral-tokyo/"><i class="fa-solid fa-up-right-from-square"></i></a>    
                     <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                        
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                   
                 </div>
             </div>
             <div class="service">
@@ -364,26 +364,26 @@
                     </h3>                           
                     <a href="https://issuu.com/hytran38/docs/nguy_n_th__huy_n_tr_n-16510201111-k_t_c_u_m_i_treo/s/11048917"><i class="fa-solid fa-up-right-from-square"></i></a> 
                     <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                           
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                      
                 </div>
             </div>
             <div class="service">
@@ -398,31 +398,32 @@
                     </h3>                          
                     <a href="https://www.japan.travel/vi/spot/2073/"><i class="fa-solid fa-up-right-from-square"></i></a>    
                     <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                         
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                    
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Contact -->
 <div id="contact">
     <div class="container">

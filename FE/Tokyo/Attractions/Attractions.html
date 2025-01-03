@@ -28,19 +28,22 @@
             </div>
             <div class="sign-in" id="signInBtn" onclick="loginToggle()">Sign in</div>
             <div class="join-us" onclick="signupToggle()">Join us</div>
-             <div class="user">
-            <img src="https://www.gravatar.com/avatar/edba7a780125c6e32a506ba87245bcd3.jpg?s=80&d=mp&r=g" alt="" class="user-img">
-            <span class="user-name">Loading...</span>
-
-            <ul class="user-menu">
-                <li class="user-items">
-                    <div class="user-setting" onclick="showMyAccount()">My Account</div>
-                </li>
-                <li class="user-items">
-                    <a href="" class="user-setting" id="log-out">Log out</a>
-                </li>
-            </ul>
-        </div>
+            <div class="user">
+                <img src="https://www.gravatar.com/avatar/edba7a780125c6e32a506ba87245bcd3.jpg?s=80&d=mp&r=g" alt="" class="user-img">
+                <span class="user-name">Loading...</span>
+    
+                <ul class="user-menu">
+                    <li class="user-items">
+                        <div class="user-setting" onclick="showMyAccount()">My Account</div>
+                    </li>
+                    <li class="user-items">
+                        <div class="user-setting">Help</div>
+                    </li>
+                    <li class="user-items">
+                        <a href="" class="user-setting" id="log-out">Log out</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 <!-- modal pop up -->
@@ -73,10 +76,7 @@
         <form id="loginForm" action="#" onsubmit="handleLogin(event)">
             <input id="loginUserName" type="text" placeholder="User Name" autocomplete="username">
             <input id="loginPassword" type="password" placeholder="Password" autocomplete="password">
-            <div class="row-form">
-                <input id="loginSubmit" type="submit" value="Login">
-                <a href="" class="forgotPassword" onclick="forgotPasswordToggle(event)">Forgot Password</a>
-            </div>
+            <input id="loginSubmit" type="submit" value="Login">
             <div class="register-link">
                 <p>Don't have an account?
                     <a href="javascript:void(0);" onclick=" event.preventDefault(); toggleForm('.sign-up-form')">Sign up</a>
@@ -111,85 +111,103 @@
             <div class="service">
                 <img src="/Tokyo/Attractions/akihabara.jpg" alt="">
                 <div class="layer">
-                    <h3>Akihabara Street</h3>
+                    <h3>Akihabara Street
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Akihabara 
+                        </span>
+                    </h3>
                     <a href="https://www.traveloka.com/vi-vn/explore/destination/du-lich-akihabara-acc/191862"><i class="fa-solid fa-up-right-from-square"></i></a> 
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div> 
+                   <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>      
                 </div>
             </div>
             <div class="service">
                 <img src="/Tokyo/Attractions/shibuya.jpg" alt="">
                 <div class="layer">
-                    <h3>Shibuya Street</h3>
-                    <a href="https://www.traveloka.com/vi-vn/explore/destination/du-lich-shibuya-acc/191898"><i class="fa-solid fa-up-right-from-square"></i></a> 
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>  
+                    <h3>Shibuya Street
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Shibuya Street
+                        </span>
+                    </h3>
+                    <a href="https://www.traveloka.com/vi-vn/explore/destination/du-lich-shibuya-acc/191898"><i class="fa-solid fa-up-right-from-square"></i></a>
+                   <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>        
                 </div>
             </div>
             <div class="service">
                 <img src="/Tokyo/Attractions/skytree.jpg" alt="">
                 <div class="layer">
-                    <h3>Toyko Skytree</h3>
-                    <a href="https://www.tokyo-skytree.jp/en/"><i class="fa-solid fa-up-right-from-square"></i></a>    
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                           
+                    <h3>Toyko Skytree
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                                Sumida district
+                        </span>
+                    </h3>
+                    <a href="https://www.tokyo-skytree.jp/en/"><i class="fa-solid fa-up-right-from-square"></i></a>   
+                   <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                                 
                 </div>
             </div>
         </div>
@@ -198,85 +216,103 @@
             <div class="service">
                 <img src="/Tokyo/Attractions/ginza.jpg" alt="">
                 <div class="layer">
-                    <h3>Ginza Tokyo</h3>
+                    <h3>Ginza Tokyo
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Chūō
+                        </span>
+                    </h3>
                     <a href="https://travel.gaijinpot.com/art-aquarium-ginza/"><i class="fa-solid fa-up-right-from-square"></i></a> 
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div> 
+                  <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>      
                 </div>
             </div>
             <div class="service">
                 <img src="/Tokyo/Attractions/red tokyo.jpg" alt="">
                 <div class="layer">
-                    <h3>Red Tokyo Tower</h3>
+                    <h3>Red Tokyo Tower
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Minato City, Shibakoen
+                        </span>
+                    </h3>
                     <a href="https://tokyotower.red-brand.jp/"><i class="fa-solid fa-up-right-from-square"></i></a> 
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>  
+                  <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>       
                 </div>
             </div>
             <div class="service">
                 <img src="/Tokyo/Attractions/nezu.jpg" alt="">
                 <div class="layer">
-                    <h3>Nezu Temple</h3>
+                    <h3>Nezu Temple
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Nezu, Bunkyo City
+                        </span>
+                    </h3>
                     <a href="https://vi.japantravel.com/tokyo/den-nezu/55464"><i class="fa-solid fa-up-right-from-square"></i></a>   
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                            
+                  <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                                 
                 </div>
             </div>
         </div>
@@ -285,85 +321,103 @@
             <div class="service">
                 <img src="/Tokyo/Attractions/disneySea.jpg" alt="">
                 <div class="layer">
-                    <h3>Tokyo DisneySea</h3>
+                    <h3>Tokyo DisneySea
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                            1-13 Maihama, Urayasu, Chiba
+                        </span>
+                    </h3>
                     <a href="https://www.tokyodisneyresort.jp/en/tds/"><i class="fa-solid fa-up-right-from-square"></i></a> 
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div> 
+                  <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>      
                 </div>
             </div>
             <div class="service">
                 <img src="/Tokyo/Attractions/kabukicho.jpg" alt="">
                 <div class="layer">
-                    <h3>Kabukicho red light district</h3>
+                    <h3>Kabukicho red light district
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Kabukicho
+                        </span>
+                    </h3>
                     <a href="https://100travelstories.com/blog/kabukicho-red-light-district/"><i class="fa-solid fa-up-right-from-square"></i></a>  
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div> 
+                  <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>      
                 </div>
             </div>
             <div class="service">
                 <img src="/Tokyo/Attractions/inokashira.jpg" alt="">
                 <div class="layer">
-                    <h3>Inokashira Onshi Park</h3>
+                    <h3>Inokashira Onshi Park
+                        <span>
+                            <br><br>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Gotenyama, Musashino
+                        </span>
+                    </h3>
                     <a href="https://gody.vn/chau-a/Japan/tokyo/cong-vien-inokashira"><i class="fa-solid fa-up-right-from-square"></i></a>      
-                    <div id="rating-container">
-                                <label for="rating">Đánh giá của bạn:</label>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5_4" name="rating" value="5" />
-                                    <label for="star5_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star4_4" name="rating" value="4" />
-                                    <label for="star4_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star3_4" name="rating" value="3" />
-                                    <label for="star3_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star2_4" name="rating" value="2" />
-                                    <label for="star2_4" class="star">&#9733;</label>
-                            
-                                    <input type="radio" id="star1_4" name="rating" value="1" />
-                                    <label for="star1_4" class="star">&#9733;</label>
-    
-                                </div>
-                                <button class="submit-rating">Gửi Đánh Giá</button>
-                            </div>                         
+                  <div id="rating-container">
+                            <label for="rating">Your Rating:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5_4" name="rating" value="5" />
+                                <label for="star5_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star4_4" name="rating" value="4" />
+                                <label for="star4_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star3_4" name="rating" value="3" />
+                                <label for="star3_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star2_4" name="rating" value="2" />
+                                <label for="star2_4" class="star">&#9733;</label>
+                        
+                                <input type="radio" id="star1_4" name="rating" value="1" />
+                                <label for="star1_4" class="star">&#9733;</label>
+
+                            </div>
+                            <button class="submit-rating">Send Vote</button>
+                        </div>                              
                 </div>
             </div>
         </div>
