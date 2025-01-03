@@ -90,11 +90,10 @@
             <h1>Account Setting</h1>
         </div>
         <form id="accountForm" action="#">
-            <div class="row-form">
-                <input id="accountUserName" type="text" placeholder="New User Name">
-                <input id="accountFullName" type="text" placeholder="New Full Name">   
-            </div>
-            <input id="accountEmail" type="email" placeholder="New Email" autocomplete="username">
+            <input id="accountUserName" type="text" placeholder="User Name" required disabled>
+            <input id="accountFullName" type="text" placeholder="Full Name" required>   
+            <input id="accountEmail" type="email" placeholder="Email" autocomplete="username" required>
+            <input id="accountRole" type="text" placeholder="Role" autocomplete="username" required disabled>
             <input id="accountSubmit" type="submit" value="Change" style="cursor: pointer;">
         </form>       
     </div>
