@@ -637,10 +637,10 @@ form .btn2 {
   }
   .popular__rating {
     padding: 0.5rem 1rem;
-    position: grid;                 /* Vẫn sử dụng vị trí tuyệt đối */
-    top: 25%;                           /* Đưa phần tử lên gần đầu trang (10% từ trên cùng) */
-    left: 50%;                          /* Đặt phần tử ở giữa theo chiều ngang */
-    transform: translateX(-50%);        /* Dịch chuyển phần tử về giữa theo chiều ngang */
+    position: grid;                
+    top: 25%;                         
+    left: 50%;                         
+    transform: translateX(-50%);     
     display: flex;
     align-items: center;
     gap: 10px;
@@ -654,7 +654,7 @@ form .btn2 {
     font-size: 1.2rem;
     color: goldenrod;
   }
-  /* Container chứa các sao và nút gửi */
+
 .rating-container {
     display: flex;
     flex-direction: column;
@@ -662,40 +662,33 @@ form .btn2 {
     padding: 20px;
 }
 
-/* Sắp xếp các sao theo hàng ngang */
 .star-rating {
     display: flex;
     gap: 10px;
 }
 
-/* Ẩn các input radio nhưng vẫn giữ chúng để chọn */
 .star-rating input {
     display: none;
 }
 
-/* Chế độ mặc định của sao */
 .star {
     font-size: 30px;
     color: gray;
     cursor: pointer;
 }
 
-/* Khi sao được chọn (hover hoặc checked) */
 .star-rating>input:checked~label,
 .star-rating:not(:checked)>label:hover, 
 .star-rating:not(:checked)>label:hover~label{color:#FFD700;}
-/* Hover vào các sao phía trước ngôi sao đã chọn*/
 .star-rating>input:checked+label:hover,
 .star-rating>input:checked~label:hover,
 .star-rating>label:hover~input:checked~label,
 .star-rating>input:checked~label:hover~label{color:#FFED85;}
 
-/* Khi sao được chọn, các sao phía trước sẽ được tô màu vàng */
 .star-rating input:checked ~ label {
     color: gold;
 }
 
-/* Nút gửi đánh giá */
 .submit-rating {
     margin-top: 10px;
     padding: 10px 20px;
@@ -708,171 +701,4 @@ form .btn2 {
 
 .submit-rating:hover {
     background-color: #45a049;
-}
-/* review */
-.section__container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  .header {
-    margin-bottom: 2rem;
-  }
-  
-  .header p {
-    letter-spacing: 2px;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  
-  .header h1 {
-    font-family: "Noto Serif", serif;
-    font-size: 2rem;
-    font-weight: 900;
-  }
-  
-  .testimonials__grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .card {
-    padding: 2rem;
-    display: grid;
-    gap: 1rem;
-    background-color: var(--extra-light);
-    border-radius: 5px;
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-  }
-  
-  .card i {
-    font-size: 2.5rem;
-    color: gold;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    font-weight: 500;
-    max-height: 60px;
-  }
-  
-  .card hr {
-    width: 40px;
-    margin: auto;
-    color: var(--text-light);
-  }
-  
-  .card img {
-    width: 60px;
-    height: 60px;
-    margin: auto;
-    border-radius: 100%;
-    border: 1px solid var(--primary-color);
-  }
-  
-  .card .name {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--text-light);
-    transition: 0.3s;
-  }
-  
-  .card .name:hover {
-    color: var(--primary-color);
-  }
-  
-  .footer h4 {
-    font-family: "Noto Serif", serif;
-    font-size: 1.25rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-  }
-  
-  .footer p {
-    max-width: 450px;
-    margin: auto;
-    font-size: 0.9rem;
-    line-height: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .footer button {
-    padding: 1rem 2rem;
-    outline: none;
-    border: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--extra-light);
-    background-color: var(--primary-color);
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  @media (width < 900px) {
-    .testimonials__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-  }
-  
-  @media (width < 600px) {
-    .testimonials__grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
- 
-/* Container chứa bảng xếp hạng */
-.ranking-container {
-    width: 80%;
-    margin: 0 auto;
-    text-align: left;
-    padding: 20px;
-}
-
-.ranking-container h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-/* Danh sách xếp hạng */
-.ranking-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.ranking-item {
-    display: flex;
-    justify-content: center; /* Căn giữa các phần tử trong item */
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-    font-size: 1rem;
-    align-items: center;
-    position: relative; /* Để có thể căn giữa chính xác các phần tử */
-}
-
-.ranking-name {
-    font-weight: bold;
-    position: absolute; /* Cho phép căn chỉnh tuyệt đối */
-    left: 10px; /* Khoảng cách từ bên trái */
-    white-space: nowrap; /* Đảm bảo tên không xuống dòng */
-}
-
-.ranking-stars {
-    font-size: 1.2rem;
-    color: gold;
-    text-align: center; /* Căn giữa chữ */
-}
-
-.ranking-reviews {
-    font-size: 0.9rem;
-    color: gray;
-    position: absolute; /* Căn chỉnh tuyệt đối với bên phải */
-    right: 10px; /* Khoảng cách từ bên phải */
 }
